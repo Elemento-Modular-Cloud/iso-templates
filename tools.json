@@ -5,6 +5,6 @@
         "help": "",
         "os_family": "windows",
         "version": "2021",
-        "scope":"Drivers"
+        "scope":"drivers"
     }
 ]
