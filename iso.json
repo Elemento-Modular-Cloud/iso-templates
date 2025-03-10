@@ -163,11 +163,11 @@
     },
     {
         "name": "ArchLinux",
-        "iso_url": "http://archlinux.mirror.garr.it/archlinux/iso/latest/archlinux-2025.02.01-x86_64.iso",
+        "iso_url": "http://archlinux.mirror.garr.it/archlinux/iso/latest/archlinux-x86_64.iso",
         "help": "https://archlinux.org",
         "os_family": "linux",
         "os_flavour": "arch",
-        "os_version": "2025.02.01",
+        "os_version": "latest"
         "libosinfo_id": "http://archlinux.org/archlinux/rolling"
     },
     {
