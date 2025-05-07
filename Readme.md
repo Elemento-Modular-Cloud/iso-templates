@@ -12,3 +12,8 @@
 # AtomOS iso templates
 
 Repository with *.iso* images list for AtomOS
+
+## Link Status
+
+<!--status-start-->
+<!--status-end-->
