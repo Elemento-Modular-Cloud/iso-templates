@@ -4,9 +4,6 @@ on:
     workflow_dispatch:
     schedule:
         - cron: '0 4 * * 0' # every Sunday at midnight
-    push:
-        branches:
-            - main
 
 jobs:
     verify_links:
@@ -53,21 +50,31 @@ jobs:
 
             - name: Update README with status table
               run: |
-                echo "| Name | Status |" > table.md
-                echo "|------|--------|" >> table.md
+                echo "| Name | Version | Status |" > table.md
+                echo "|------|---------|--------|" >> table.md
+            
                 for report in report_*.json; do
-                    jq -r '.[] | "| \(.name) | " + (if .valid then "✅" else "❌" end) + " |"' "$report" >> table.md
+                    # Clean control characters and build table row with optional version
+                    tr -d '\000-\037' < "$report" | jq -r '
+                        .[] | 
+                        "| \(.name) | " + 
+                        (if has("os_version") then .os_version else "—" end) + 
+                        " | " + 
+                        (if .valid then "✅" else "❌" end) + 
+                        " |"
+                    ' >> table.md
                 done
-
+            
                 # Replace section in README.md
-                awk '/<!--status-start-->/{print;system("cat table.md");next} /<!--status-end-->/{print;next} 1' README.md > README.new.md
-                mv README.new.md README.md
+                awk '/<!--status-start-->/{print;system("cat table.md");next} /<!--status-end-->/{print;next} 1' dummy.md > Readme.new.md
+                mv Readme.new.md Readme.md
+                
 
             - name: Commit and push if README changed
               run: |
                 git config user.name "github-actions"
                 git config user.email "github-actions@github.com"
-                git add README.md
+                git add Readme.md
                 git diff --cached --quiet || git commit -m "Update README with link status report"
                 git push origin main
 
