@@ -5,7 +5,8 @@
         "help": "https://support.microsoft.com/en-us/windows/windows-xp-support-has-ended-47b944b8-f4d3-82f2-9acc-21c79ee6ef5e",
         "os_family": "windows",
         "os_flavour": "windowsxp",
-        "os_version": "xp"
+        "os_version": "xp",
+        "libosinfo_id": "http://microsoft.com/win/xp"
     },
     {
         "name": "Windows7",
@@ -13,7 +14,8 @@
         "help": "https://learn.microsoft.com/en-au/lifecycle/products/windows-7",
         "os_family": "windows",
         "os_flavour": "windows7",
-        "os_version": "7"
+        "os_version": "7",
+        "libosinfo_id": "http://microsoft.com/win/7"
     },
     {
         "name": "Windows10",
@@ -21,7 +23,8 @@
         "help": "https://www.microsoft.com/en-us/software-download/windows10ISO",
         "os_family": "windows",
         "os_flavour": "windows10",
-        "os_version": "10"
+        "os_version": "10",
+        "libosinfo_id": "http://microsoft.com/win/10"
     },
     {
         "name": "Windows11",
@@ -29,7 +32,8 @@
         "help": "https://www.microsoft.com/en-us/software-download/windows11",
         "os_family": "windows",
         "os_flavour": "windows11",
-        "os_version": "11"
+        "os_version": "11",
+        "libosinfo_id": "http://microsoft.com/win/11"
     },
     {
         "name": "WindowsServer2003",
@@ -37,7 +41,8 @@
         "help": "",
         "os_family": "windows",
         "os_flavour": "windowssrv2003",
-        "os_version": "srv2003"
+        "os_version": "srv2003",
+        "libosinfo_id": "http://microsoft.com/win/2k3"
     },
     {
         "name": "WindowsServer2008",
@@ -45,7 +50,8 @@
         "help": "https://learn.microsoft.com/it-it/iis/install/installing-iis-7/install-windows-server-2008-and-windows-server-2008-r2",
         "os_family": "windows",
         "os_flavour": "windowssrv2008",
-        "os_version": "srv2008"
+        "os_version": "srv2008",
+        "libosinfo_id": "http://microsoft.com/win/2k8"
     },
     {
         "name": "WindowsServer2012",
@@ -53,7 +59,8 @@
         "help": "https://www.microsoft.com/evalcenter/evaluate-windows-server-2012",
         "os_family": "windows",
         "os_flavour": "windowssrv2012",
-        "os_version": "srv2012"
+        "os_version": "srv2012",
+        "libosinfo_id": "http://microsoft.com/win/2k12"
     },
     {
         "name": "WindowsServer2016",
@@ -61,7 +68,8 @@
         "help": "https://www.microsoft.com/evalcenter/evaluate-windows-server-2016",
         "os_family": "windows",
         "os_flavour": "windowssrv2016",
-        "os_version": "srv2016"
+        "os_version": "srv2016",
+        "libosinfo_id": "http://microsoft.com/win/2k16"
     },
     {
         "name": "WindowsServer2019",
@@ -69,7 +77,8 @@
         "help": "https://www.microsoft.com/evalcenter/evaluate-windows-server-2019",
         "os_family": "windows",
         "os_flavour": "windowssrv2019",
-        "os_version": "srv2019"
+        "os_version": "srv2019",
+        "libosinfo_id": "http://microsoft.com/win/2k19"
     },
     {
         "name": "WindowsServer2022",
@@ -77,7 +86,8 @@
         "help": "https://www.microsoft.com/evalcenter/evaluate-windows-server-2022",
         "os_family": "windows",
         "os_flavour": "windowssrv2022",
-        "os_version": "srv2022"
+        "os_version": "srv2022",
+        "libosinfo_id": "http://microsoft.com/win/2k22"
     },
     {
         "name": "Ubuntu",
@@ -85,7 +95,8 @@
         "help": "",
         "os_family": "linux",
         "os_flavour": "ubuntu",
-        "os_version": "24.04-desktop-LTS"
+        "os_version": "24.04-desktop-LTS",
+        "libosinfo_id": "http://ubuntu.com/ubuntu/24.04"
     },
     {
         "name": "Ubuntu",
@@ -93,7 +104,8 @@
         "help": "",
         "os_family": "linux",
         "os_flavour": "ubuntu",
-        "os_version": "24.04-server-LTS"
+        "os_version": "24.04-server-LTS",
+        "libosinfo_id": null
     },
     {
         "name": "Ubuntu",
@@ -101,7 +113,8 @@
         "help": "",
         "os_family": "linux",
         "os_flavour": "ubuntu",
-        "os_version": "24.10-desktop"
+        "os_version": "24.10-desktop",
+        "libosinfo_id": "http://ubuntu.com/ubuntu/24.10"
     },
     {
         "name": "Ubuntu",
@@ -109,7 +122,8 @@
         "help": "",
         "os_family": "linux",
         "os_flavour": "ubuntu",
-        "os_version": "24.10-server"
+        "os_version": "24.10-server",
+        "libosinfo_id": null
     },
     {
         "name": "Pop!_OS",
@@ -117,7 +131,8 @@
         "help": "",
         "os_family": "linux",
         "os_flavour": "pop",
-        "os_version": "22.04"
+        "os_version": "22.04",
+        "libosinfo_id": null
     },
     {
         "name": "Pop!_OS",
@@ -125,7 +140,8 @@
         "help": "",
         "os_family": "linux",
         "os_flavour": "pop",
-        "os_version": "22.04-nvidia"
+        "os_version": "22.04-nvidia",
+        "libosinfo_id": null
     },
     {
         "name": "Mint",
@@ -133,7 +149,8 @@
         "help": "",
         "os_family": "linux",
         "os_flavour": "mint",
-        "os_version": "22.1"
+        "os_version": "22.1",
+        "libosinfo_id": null
     },
     {
         "name": "NixOS",
@@ -141,15 +158,17 @@
         "help": "",
         "os_family": "linux",
         "os_flavour": "nixos",
-        "os_version": "24.11"
+        "os_version": "24.11",
+        "libosinfo_id": null
     },
     {
         "name": "ArchLinux",
-        "iso_url": "http://archlinux.mirror.garr.it/archlinux/iso/latest/archlinux-2025.02.01-x86_64.iso",
+        "iso_url": "http://archlinux.mirror.garr.it/archlinux/iso/latest/archlinux-x86_64.iso",
         "help": "https://archlinux.org",
         "os_family": "linux",
         "os_flavour": "arch",
-        "os_version": "2025.02.01"
+        "os_version": "latest",
+        "libosinfo_id": "http://archlinux.org/archlinux/rolling"
     },
     {
         "name": "TempleOS",
@@ -157,14 +176,16 @@
         "help": "https://templeos.org",
         "os_family": "linux",
         "os_flavour": "temple",
-        "os_version": "N/A"
+        "os_version": "N/A",
+        "libosinfo_id": null
     },
     {
         "name": "Debian",
         "iso_url": "http://debian.mirror.garr.it/debian-cd/12.9.0/amd64/iso-cd/debian-12.9.0-amd64-netinst.iso",
         "help": "",
         "os_family": "linux",
-        "os_flavour": "12.9"
+        "os_flavour": "12.9",
+        "libosinfo_id": "http://debian.org/debian/12"
     },
     {
         "name": "Fedora",
@@ -172,7 +193,8 @@
         "help": "https://getfedora.org/en/workstation/download/",
         "os_family": "linux",
         "os_flavour": "fedora",
-        "os_version": "41-workstation"
+        "os_version": "41-workstation",
+        "libosinfo_id": null
     },
     {
         "name": "Fedora Silverblue",
@@ -180,7 +202,8 @@
         "help": "https://getfedora.org/en/workstation/download/",
         "os_family": "linux",
         "os_flavour": "fedora",
-        "os_version": "41-silverblue"
+        "os_version": "41-silverblue",
+        "libosinfo_id": null
     },
     {
         "name": "ChimeraOS",
@@ -188,7 +211,8 @@
         "help": "https://chimeraos.org",
         "os_family": "linux",
         "os_flavour": "chimera",
-        "os_version": "2025.01.24"
+        "os_version": "2025.01.24",
+        "libosinfo_id": null
     },
     {
         "name": "Rocky Linux",
@@ -196,7 +220,8 @@
         "help": "",
         "os_family": "linux",
         "os_flavour": "rocky",
-        "os_version": "9.5"
+        "os_version": "9.5",
+        "libosinfo_id": null
     },
     {
         "name": "AlmaLinux",
@@ -204,7 +229,8 @@
         "help": "",
         "os_family": "linux",
         "os_flavour": "almalinux",
-        "os_version": "9.5"
+        "os_version": "9.5",
+        "libosinfo_id": null
     },
     {
         "name": "OpenMandriva",
@@ -212,7 +238,8 @@
         "help": "",
         "os_family": "linux",
         "os_flavour": "openmandriva",
-        "os_version": "5.0"
+        "os_version": "5.0",
+        "libosinfo_id": null
     },
     {
         "name": "EndeavourOS",
@@ -220,7 +247,8 @@
         "help": "",
         "os_family": "linux",
         "os_flavour": "endeavour",
-        "os_version": "2024.09.22"
+        "os_version": "2024.09.22",
+        "libosinfo_id": null
     },
     {
         "name": "OpenBSD",
@@ -228,7 +256,8 @@
         "help": "",
         "os_family": "bsd",
         "os_flavour": "openbsd",
-        "os_version": "7.6"
+        "os_version": "7.6",
+        "libosinfo_id": null
     },
     {
         "name": "Android x86",
@@ -236,7 +265,8 @@
         "help": "",
         "os_family": "android",
         "os_flavour": "androidx86",
-        "os_version": "9.0"
+        "os_version": "9.0",
+        "libosinfo_id": "http://android-x86.org/android-x86/9.0"
     }
 ]
 

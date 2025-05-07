@@ -1,6 +1,6 @@
 [
     {
-        "name": "Ubunt",
+        "name": "Ubuntu",
         "iso_url": "https://cloud-images.ubuntu.com/oracular/current/oracular-server-cloudimg-amd64.img",
         "help": "",
         "os_family": "linux",
