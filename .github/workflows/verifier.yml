@@ -1,0 +1,53 @@
+name: Verify that links all works
+
+on:
+    workflow_dispatch:
+    schedule:
+        - cron: '0 0 * * 0' # every Sunday at midnight
+    push:
+        branches:
+            - main
+
+jobs:
+    verify_links:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v4
+              with:
+                  token: ${{ secrets.REPO_KEY }}
+                  submodules: recursive
+                  ref: main
+
+            - name: Install dependencies
+              run: |
+                  sudo apt-get update
+                  sudo apt-get install -y wget curl
+
+            - name: Create report for iso file
+              run: ./url_verifier.sh --file iso.json > report_iso.json
+
+            - name: Create report for tools file
+              run: ./url_verifier.sh --file tools.json > report_tools.json
+
+            - name: Create report for cloudiso file
+              run: ./url_verifier.sh --file cloudiso.json > report_cloudiso.json
+
+            - name: push iso report
+              uses: actions/upload-artifact@v3
+              with:
+                  name: report_iso.json
+                  path: report_iso.json
+            
+            - name: push tools report
+              uses: actions/upload-artifact@v3
+              with:
+                  name: report_tools.json
+                  path: report_tools.json
+
+            - name: push cloudiso report
+              uses: actions/upload-artifact@v3
+              with:
+                  name: report_cloudiso.json
+                  path: report_cloudiso.json
+

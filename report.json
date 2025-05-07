@@ -1,0 +1,306 @@
+[
+  {
+    "name": "WindowsXP",
+    "url": "null",
+    "status": 0,
+    "valid": false,
+    "content_length": "unknown",
+    "content_type": "unknown",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "Windows7",
+    "url": "null",
+    "status": 0,
+    "valid": false,
+    "content_length": "unknown",
+    "content_type": "unknown",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "Windows10",
+    "url": "null",
+    "status": 0,
+    "valid": false,
+    "content_length": "unknown",
+    "content_type": "unknown",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "Windows11",
+    "url": "null",
+    "status": 0,
+    "valid": false,
+    "content_length": "unknown",
+    "content_type": "unknown",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "WindowsServer2003",
+    "url": "null",
+    "status": 0,
+    "valid": false,
+    "content_length": "unknown",
+    "content_type": "unknown",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "WindowsServer2008",
+    "url": "null",
+    "status": 0,
+    "valid": false,
+    "content_length": "unknown",
+    "content_type": "unknown",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "WindowsServer2012",
+    "url": "null",
+    "status": 0,
+    "valid": false,
+    "content_length": "unknown",
+    "content_type": "unknown",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "WindowsServer2016",
+    "url": "null",
+    "status": 0,
+    "valid": false,
+    "content_length": "unknown",
+    "content_type": "unknown",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "WindowsServer2019",
+    "url": "null",
+    "status": 0,
+    "valid": false,
+    "content_length": "unknown",
+    "content_type": "unknown",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "WindowsServer2022",
+    "url": "null",
+    "status": 0,
+    "valid": false,
+    "content_length": "unknown",
+    "content_type": "unknown",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "Ubuntu",
+    "url": "http://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.1-desktop-amd64.iso",
+    "status": 404,
+    "valid": false,
+    "content_length": "146",
+    "content_type": "text/html",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "Ubuntu",
+    "url": "http://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.1-live-server-amd64.iso",
+    "status": 404,
+    "valid": false,
+    "content_length": "146",
+    "content_type": "text/html",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "Ubuntu",
+    "url": "http://ubuntu.mirror.garr.it/ubuntu-releases/oracular/ubuntu-24.10-desktop-amd64.iso",
+    "status": 200,
+    "valid": true,
+    "content_length": "5665497088",
+    "content_type": "application/octet-stream",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "Ubuntu",
+    "url": "http://ubuntu.mirror.garr.it/ubuntu-releases/oracular/ubuntu-24.10-live-server-amd64.iso",
+    "status": 200,
+    "valid": true,
+    "content_length": "2098460672",
+    "content_type": "application/octet-stream",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "Pop!_OS",
+    "url": "https://iso.pop-os.org/22.04/amd64/intel/49/pop-os_22.04_amd64_intel_49.iso",
+    "status": 200,
+    "valid": true,
+    "content_length": "2667577344",
+    "content_type": "application/x-iso9660-image",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "Pop!_OS",
+    "url": "https://iso.pop-os.org/22.04/amd64/nvidia/49/pop-os_22.04_amd64_nvidia_49.iso",
+    "status": 200,
+    "valid": true,
+    "content_length": "3097722880",
+    "content_type": "application/x-iso9660-image",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "Mint",
+    "url": "http://linuxmint.mirror.garr.it/linuxmint/iso/stable/22.1/linuxmint-22.1-cinnamon-64bit.iso",
+    "status": 200,
+    "valid": true,
+    "content_length": "2980511744",
+    "content_type": "application/octet-stream",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "NixOS",
+    "url": "https://channels.nixos.org/nixos-24.11/latest-nixos-gnome-x86_64-linux.iso",
+    "status": 302,
+    "valid": false,
+    "content_length": "0",
+    "content_type": "unknown",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "ArchLinux",
+    "url": "http://archlinux.mirror.garr.it/archlinux/iso/latest/archlinux-2025.02.01-x86_64.iso",
+    "status": 404,
+    "valid": false,
+    "content_length": "146",
+    "content_type": "text/html",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "TempleOS",
+    "url": "https://templeos.org/Downloads/TempleOS.ISO",
+    "status": 200,
+    "valid": true,
+    "content_length": "17350656",
+    "content_type": "application/octet-stream",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "Debian",
+    "url": "http://debian.mirror.garr.it/debian-cd/12.9.0/amd64/iso-cd/debian-12.9.0-amd64-netinst.iso",
+    "status": 404,
+    "valid": false,
+    "content_length": "146",
+    "content_type": "text/html",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "Fedora",
+    "url": "http://fedora.mirror.garr.it/fedora/linux/releases/41/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-41-1.4.iso",
+    "status": 200,
+    "valid": true,
+    "content_length": "2458187776",
+    "content_type": "application/octet-stream",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "Fedora Silverblue",
+    "url": "http://fedora.mirror.garr.it/fedora/linux/releases/41/Silverblue/x86_64/iso/Fedora-Silverblue-ostree-x86_64-41-1.4.iso",
+    "status": 200,
+    "valid": true,
+    "content_length": "3002775552",
+    "content_type": "application/octet-stream",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "ChimeraOS",
+    "url": "https://github.com/ChimeraOS/install-media/releases/download/2025-01-24_7a488b9/chimeraos-2025.01.24-x86_64.iso",
+    "status": 302,
+    "valid": false,
+    "content_length": "0",
+    "content_type": "text/html;
+https://objects.githubusercontent.com/github-production-release-asset-2e65be/198104554/07a5cc90-8bdd-4970-8e0f-bed35faf9e11?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250507%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250507T093009Z&X-Amz-Expires=300&X-Amz-Signature=d3dc6b5564f77c48282250a2167a838fb203b953b1cff84638548419a208bfbf&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3Dchimeraos-2025.01.24-x86_64.iso&response-content-type=application%2Foctet-stream
+nosniff",
+    "content_disposition": "https://objects.githubusercontent.com/github-production-release-asset-2e65be/198104554/07a5cc90-8bdd-4970-8e0f-bed35faf9e11?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250507%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250507T093009Z&X-Amz-Expires=300&X-Amz-Signature=d3dc6b5564f77c48282250a2167a838fb203b953b1cff84638548419a208bfbf&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3Dchimeraos-2025.01.24-x86_64.iso&response-content-type=application%2Foctet-stream"
+  }
+,
+  {
+    "name": "Rocky Linux",
+    "url": "http://rockylinux.mirror.garr.it/9.5/isos/x86_64/Rocky-9-latest-x86_64-minimal.iso",
+    "status": 200,
+    "valid": true,
+    "content_length": "1896153088",
+    "content_type": "application/octet-stream",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "AlmaLinux",
+    "url": "http://almalinux.mirror.garr.it/9.5/isos/x86_64/AlmaLinux-9-latest-x86_64-minimal.iso",
+    "status": 200,
+    "valid": true,
+    "content_length": "2124414976",
+    "content_type": "application/octet-stream",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "OpenMandriva",
+    "url": "https://file-store.openmandriva.org/api/v1/file_stores/05f77b14863e5c75e30cf801ce35a64e8bc7726f",
+    "status": 404,
+    "valid": false,
+    "content_length": "unknown",
+    "content_type": "application/json;
+nosniff",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "EndeavourOS",
+    "url": "https://mirror.rznet.fr/endeavouros/iso/EndeavourOS_Endeavour_neo-2024.09.22.iso",
+    "status": 200,
+    "valid": true,
+    "content_length": "2968961024",
+    "content_type": "application/octet-stream",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "OpenBSD",
+    "url": "http://openbsd.mirror.garr.it/pub/OpenBSD/7.6/amd64/install76.iso",
+    "status": 200,
+    "valid": true,
+    "content_length": "702595072",
+    "content_type": "application/octet-stream",
+    "content_disposition": "none"
+  }
+,
+  {
+    "name": "Android x86",
+    "url": "https://sourceforge.net/projects/osboxes/files/v/vb/1-A-d/9.0/R2/andr_9.0-r2-VB-32bit.7z/download",
+    "status": 302,
+    "valid": false,
+    "content_length": "unknown",
+    "content_type": "text/html;
+nosniff",
+    "content_disposition": "none"
+  }
+
+]
