@@ -184,7 +184,8 @@
         "iso_url": "https://debian.mirror.garr.it/debian-cd/current/amd64/iso-cd/debian-12.10.0-amd64-netinst.iso",
         "help": "",
         "os_family": "linux",
-        "os_flavour": "12.10.0",
+        "os_flavour": "netinst",
+        "os_version": "12.10.0",
         "libosinfo_id": "http://debian.org/debian/12"
     },
     {

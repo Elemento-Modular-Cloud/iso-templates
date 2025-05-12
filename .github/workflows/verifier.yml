@@ -52,23 +52,28 @@ jobs:
               run: |
                 echo "| Name | Version | Status |" > table.md
                 echo "|------|---------|--------|" >> table.md
-            
+
                 for report in report_*.json; do
-                    # Clean control characters and build table row with optional version
-                    tr -d '\000-\037' < "$report" | jq -r '
-                        .[] | 
-                        "| \(.name) | " + 
-                        (if has("os_version") then .os_version else "—" end) + 
-                        " | " + 
-                        (if .valid then "✅" else "❌" end) + 
-                        " |"
-                    ' >> table.md
+                  # Use perl to remove control characters safely
+                  perl -pe 's/[\x00-\x1F]//g' "$report" | jq -r '
+                    .[] |
+                    "| \(.name) | " +
+                    (if has("os_version") then .os_version else "—" end) +
+                    " | " +
+                    (if (.status | type == "number") then
+                        if .status >= 200 and .status < 300 then "✅"
+                        elif .status >= 300 and .status < 400 then "❓"
+                        elif .status >= 400 then "❌"
+                        else "❌"  # status like 0 or unrecognized numeric codes
+                        end
+                    else "❓" end) +
+                    " |"
+                  ' >> table.md
                 done
-            
+
                 # Replace section in README.md
                 awk '/<!--status-start-->/{print;system("cat table.md");next} /<!--status-end-->/{print;next} 1' dummy.md > Readme.new.md
                 mv Readme.new.md Readme.md
-                
 
             - name: Commit and push if README changed
               run: |
