@@ -1,10 +1,10 @@
 [
     {
         "name": "Virtio",
-        "iso_url": "https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso",
+        "iso_url": "https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.271-1/virtio-win.iso",
         "help": "",
         "os_family": "windows",
-        "version": "2021",
+        "version": "2025",
         "scope":"drivers"
     }
 ]

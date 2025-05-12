@@ -91,7 +91,7 @@
     },
     {
         "name": "Ubuntu",
-        "iso_url": "http://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.1-desktop-amd64.iso",
+        "iso_url": "http://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.2-desktop-amd64.iso",
         "help": "",
         "os_family": "linux",
         "os_flavour": "ubuntu",
@@ -100,7 +100,7 @@
     },
     {
         "name": "Ubuntu",
-        "iso_url": "http://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.1-live-server-amd64.iso",
+        "iso_url": "http://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.2-live-server-amd64.iso",
         "help": "",
         "os_family": "linux",
         "os_flavour": "ubuntu",
@@ -109,20 +109,20 @@
     },
     {
         "name": "Ubuntu",
-        "iso_url": "http://ubuntu.mirror.garr.it/ubuntu-releases/oracular/ubuntu-24.10-desktop-amd64.iso",
+        "iso_url": "http://ubuntu.mirror.garr.it/ubuntu-releases/plucky/ubuntu-25.04-desktop-amd64.iso",
         "help": "",
         "os_family": "linux",
         "os_flavour": "ubuntu",
-        "os_version": "24.10-desktop",
-        "libosinfo_id": "http://ubuntu.com/ubuntu/24.10"
+        "os_version": "25.04-desktop",
+        "libosinfo_id": "http://ubuntu.com/ubuntu/25.04"
     },
     {
         "name": "Ubuntu",
-        "iso_url": "http://ubuntu.mirror.garr.it/ubuntu-releases/oracular/ubuntu-24.10-live-server-amd64.iso",
+        "iso_url": "http://ubuntu.mirror.garr.it/ubuntu-releases/plucky/ubuntu-25.04-live-server-amd64.iso",
         "help": "",
         "os_family": "linux",
         "os_flavour": "ubuntu",
-        "os_version": "24.10-server",
+        "os_version": "24.04-server",
         "libosinfo_id": null
     },
     {
@@ -181,10 +181,10 @@
     },
     {
         "name": "Debian",
-        "iso_url": "http://debian.mirror.garr.it/debian-cd/12.9.0/amd64/iso-cd/debian-12.9.0-amd64-netinst.iso",
+        "iso_url": "https://debian.mirror.garr.it/debian-cd/current/amd64/iso-cd/debian-12.10.0-amd64-netinst.iso",
         "help": "",
         "os_family": "linux",
-        "os_flavour": "12.9",
+        "os_flavour": "12.10.0",
         "libosinfo_id": "http://debian.org/debian/12"
     },
     {
@@ -198,7 +198,7 @@
     },
     {
         "name": "Fedora Silverblue",
-        "iso_url": "http://fedora.mirror.garr.it/fedora/linux/releases/41/Silverblue/x86_64/iso/Fedora-Silverblue-ostree-x86_64-41-1.4.iso",
+        "iso_url": "http://fedora.mirror.garr.it/fedora/linux/rehttp://debian.mirror.garr.it/debian-cd/12.9.0/amd64/iso-cd/debian-12.9.0-amd64-netinst.isoleases/41/Silverblue/x86_64/iso/Fedora-Silverblue-ostree-x86_64-41-1.4.iso",
         "help": "https://getfedora.org/en/workstation/download/",
         "os_family": "linux",
         "os_flavour": "fedora",
@@ -207,11 +207,11 @@
     },
     {
         "name": "ChimeraOS",
-        "iso_url": "https://github.com/ChimeraOS/install-media/releases/download/2025-01-24_7a488b9/chimeraos-2025.01.24-x86_64.iso",
+        "iso_url": "https://github.com/ChimeraOS/install-media/releases/download/2025-02-13_7e927cf/chimeraos-2025.02.13-x86_64.iso",
         "help": "https://chimeraos.org",
         "os_family": "linux",
         "os_flavour": "chimera",
-        "os_version": "2025.01.24",
+        "os_version": "2025.02.13",
         "libosinfo_id": null
     },
     {
@@ -234,11 +234,11 @@
     },
     {
         "name": "OpenMandriva",
-        "iso_url": "https://file-store.openmandriva.org/api/v1/file_stores/05f77b14863e5c75e30cf801ce35a64e8bc7726f",
+        "iso_url": "https://openmandriva.mirror.garr.it/release_current/6.0/openmandriva-6.0-plasma6-wayland.x86_64.iso",
         "help": "",
         "os_family": "linux",
         "os_flavour": "openmandriva",
-        "os_version": "5.0",
+        "os_version": "6.0",
         "libosinfo_id": null
     },
     {
@@ -258,15 +258,6 @@
         "os_flavour": "openbsd",
         "os_version": "7.6",
         "libosinfo_id": null
-    },
-    {
-        "name": "Android x86",
-        "iso_url": "https://sourceforge.net/projects/osboxes/files/v/vb/1-A-d/9.0/R2/andr_9.0-r2-VB-32bit.7z/download",
-        "help": "",
-        "os_family": "android",
-        "os_flavour": "androidx86",
-        "os_version": "9.0",
-        "libosinfo_id": "http://android-x86.org/android-x86/9.0"
     }
 ]
 
