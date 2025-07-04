@@ -91,7 +91,7 @@
     },
     {
         "name": "Ubuntu",
-        "iso_url": "http://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.1-desktop-amd64.iso",
+        "iso_url": "http://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.2-desktop-amd64.iso",
         "help": "",
         "os_family": "linux",
         "os_flavour": "ubuntu",
@@ -100,7 +100,7 @@
     },
     {
         "name": "Ubuntu",
-        "iso_url": "http://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.1-live-server-amd64.iso",
+        "iso_url": "http://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.2-live-server-amd64.iso",
         "help": "",
         "os_family": "linux",
         "os_flavour": "ubuntu",
