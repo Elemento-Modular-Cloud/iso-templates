@@ -91,7 +91,7 @@
     },
     {
         "name": "Ubuntu",
-        "iso_url": "http://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.2-desktop-amd64.iso",
+        "iso_url": "http://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.3-desktop-amd64.iso",
         "help": "",
         "os_family": "linux",
         "os_flavour": "ubuntu",
@@ -100,7 +100,7 @@
     },
     {
         "name": "Ubuntu",
-        "iso_url": "http://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.2-live-server-amd64.iso",
+        "iso_url": "http://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.3-live-server-amd64.iso",
         "help": "",
         "os_family": "linux",
         "os_flavour": "ubuntu",
@@ -122,7 +122,7 @@
         "help": "",
         "os_family": "linux",
         "os_flavour": "ubuntu",
-        "os_version": "24.04-server",
+        "os_version": "25.04-server",
         "libosinfo_id": null
     },
     {
@@ -145,20 +145,20 @@
     },
     {
         "name": "Mint",
-        "iso_url": "http://linuxmint.mirror.garr.it/linuxmint/iso/stable/22.1/linuxmint-22.1-cinnamon-64bit.iso",
+        "iso_url": "https://linuxmint.mirror.garr.it/linuxmint/iso/stable/22.2/linuxmint-22.2-cinnamon-64bit.iso",
         "help": "",
         "os_family": "linux",
         "os_flavour": "mint",
-        "os_version": "22.1",
+        "os_version": "22.2",
         "libosinfo_id": null
     },
     {
-        "name": "NixOS",
-        "iso_url": "https://channels.nixos.org/nixos-24.11/latest-nixos-gnome-x86_64-linux.iso",
+        "name": "AlmaLinux",
+        "iso_url": "https://almalinux.mirror.garr.it/9.6/isos/x86_64/AlmaLinux-9-latest-x86_64-boot.iso",
         "help": "",
         "os_family": "linux",
-        "os_flavour": "nixos",
-        "os_version": "24.11",
+        "os_flavour": "almalinux",
+        "os_version": "9.6",
         "libosinfo_id": null
     },
     {
@@ -181,29 +181,29 @@
     },
     {
         "name": "Debian",
-        "iso_url": "https://debian.mirror.garr.it/debian-cd/current/amd64/iso-cd/debian-12.10.0-amd64-netinst.iso",
+        "iso_url": "https://debian.mirror.garr.it/debian-cd/13.1.0/amd64/iso-cd/debian-13.1.0-amd64-netinst.iso",
         "help": "",
         "os_family": "linux",
-        "os_flavour": "netinst",
-        "os_version": "12.10.0",
-        "libosinfo_id": "http://debian.org/debian/12"
+        "os_flavour": "debian",
+        "os_version": "13.01.0",
+        "libosinfo_id": "http://debian.org/debian/13"
     },
     {
         "name": "Fedora",
-        "iso_url": "http://fedora.mirror.garr.it/fedora/linux/releases/41/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-41-1.4.iso",
+        "iso_url": "https://fedora.mirror.garr.it/fedora/linux/releases/42/Workstation/x86_64/iso/Fedora-Workstation-Live-42-1.1.x86_64.iso",
         "help": "https://getfedora.org/en/workstation/download/",
         "os_family": "linux",
         "os_flavour": "fedora",
-        "os_version": "41-workstation",
+        "os_version": "42-workstation",
         "libosinfo_id": null
     },
     {
         "name": "Fedora Silverblue",
-        "iso_url": "http://fedora.mirror.garr.it/fedora/linux/rehttp://debian.mirror.garr.it/debian-cd/12.9.0/amd64/iso-cd/debian-12.9.0-amd64-netinst.isoleases/41/Silverblue/x86_64/iso/Fedora-Silverblue-ostree-x86_64-41-1.4.iso",
+        "iso_url": "https://fedora.mirror.garr.it/fedora/linux/releases/42/Silverblue/x86_64/iso/Fedora-Silverblue-ostree-x86_64-42-1.1.iso",
         "help": "https://getfedora.org/en/workstation/download/",
         "os_family": "linux",
         "os_flavour": "fedora",
-        "os_version": "41-silverblue",
+        "os_version": "42-silverblue",
         "libosinfo_id": null
     },
     {
@@ -217,20 +217,29 @@
     },
     {
         "name": "Rocky Linux",
-        "iso_url": "http://rockylinux.mirror.garr.it/9.5/isos/x86_64/Rocky-9-latest-x86_64-minimal.iso",
+        "iso_url": "https://rockylinux.mirror.garr.it/9.6/isos/x86_64/Rocky-9-latest-x86_64-boot.iso",
         "help": "",
         "os_family": "linux",
         "os_flavour": "rocky",
-        "os_version": "9.5",
+        "os_version": "9.6",
+        "libosinfo_id": null
+    },
+    {
+        "name": "Rocky Linux",
+        "iso_url": "https://rockylinux.mirror.garr.it/10.0/isos/x86_64/Rocky-10-latest-x86_64-boot.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "rocky",
+        "os_version": "10.0",
         "libosinfo_id": null
     },
     {
         "name": "AlmaLinux",
-        "iso_url": "http://almalinux.mirror.garr.it/9.5/isos/x86_64/AlmaLinux-9-latest-x86_64-minimal.iso",
+        "iso_url": "http://almalinux.mirror.garr.it/10.0/isos/x86_64/AlmaLinux-10-latest-x86_64-minimal.iso",
         "help": "",
         "os_family": "linux",
         "os_flavour": "almalinux",
-        "os_version": "9.5",
+        "os_version": "10.0",
         "libosinfo_id": null
     },
     {
@@ -243,21 +252,21 @@
         "libosinfo_id": null
     },
     {
-        "name": "EndeavourOS",
-        "iso_url": "https://mirror.rznet.fr/endeavouros/iso/EndeavourOS_Endeavour_neo-2024.09.22.iso",
-        "help": "",
-        "os_family": "linux",
-        "os_flavour": "endeavour",
-        "os_version": "2024.09.22",
-        "libosinfo_id": null
-    },
-    {
         "name": "OpenBSD",
-        "iso_url": "http://openbsd.mirror.garr.it/pub/OpenBSD/7.6/amd64/install76.iso",
+        "iso_url": "http://openbsd.mirror.garr.it/pub/OpenBSD/7.7/amd64/install77.iso",
         "help": "",
         "os_family": "bsd",
         "os_flavour": "openbsd",
-        "os_version": "7.6",
+        "os_version": "7.7",
+        "libosinfo_id": null
+    },
+    {
+        "name": "AlpineLinux",
+        "iso_url": "https://alpinelinux.mirror.garr.it/latest-stable/releases/x86_64/alpine-virt-3.22.0-x86_64.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "alpine",
+        "os_version": "3.22.0",
         "libosinfo_id": null
     }
 ]
