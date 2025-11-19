@@ -89,6 +89,15 @@
         "os_version": "srv2022",
         "libosinfo_id": "http://microsoft.com/win/2k22"
     },
+        {
+        "name": "WindowsServer2025",
+        "iso_url": null,
+        "help": "https://www.microsoft.com/evalcenter/evaluate-windows-server-2025",
+        "os_family": "windows",
+        "os_flavour": "windowssrv2025",
+        "os_version": "srv2025",
+        "libosinfo_id": "http://microsoft.com/win/2k25"
+    },
     {
         "name": "Ubuntu",
         "iso_url": "http://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.3-desktop-amd64.iso",
