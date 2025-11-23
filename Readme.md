@@ -28,6 +28,7 @@ Repository with *.iso* images list for AtomOS
 | WindowsServer2016 | srv2016 | ❌ |
 | WindowsServer2019 | srv2019 | ❌ |
 | WindowsServer2022 | srv2022 | ❌ |
+| WindowsServer2025 | srv2025 | ❌ |
 | Ubuntu | 24.04-desktop-LTS | ✅ |
 | Ubuntu | 24.04-server-LTS | ✅ |
 | Ubuntu | 25.04-desktop | ✅ |
@@ -38,7 +39,7 @@ Repository with *.iso* images list for AtomOS
 | AlmaLinux | 9.6 | ✅ |
 | ArchLinux | latest | ✅ |
 | TempleOS | N/A | ✅ |
-| Debian | 13.01.0 | ✅ |
+| Debian | 13.01.0 | ❌ |
 | Fedora | 42-workstation | ✅ |
 | Fedora Silverblue | 42-silverblue | ✅ |
 | ChimeraOS | 2025.02.13 | ❓ |
