@@ -36,7 +36,7 @@ Repository with *.iso* images list for AtomOS
 | Pop!_OS | 22.04 | ✅ |
 | Pop!_OS | 22.04-nvidia | ✅ |
 | Mint | 22.2 | ✅ |
-| AlmaLinux | 9.6 | ✅ |
+| AlmaLinux | 9.6 | ❌ |
 | ArchLinux | latest | ✅ |
 | TempleOS | N/A | ✅ |
 | Debian | 13.01.0 | ❌ |
@@ -44,7 +44,7 @@ Repository with *.iso* images list for AtomOS
 | Fedora Silverblue | 42-silverblue | ✅ |
 | ChimeraOS | 2025.02.13 | ❓ |
 | Rocky Linux | 9.6 | ✅ |
-| Rocky Linux | 10.0 | ✅ |
+| Rocky Linux | 10.0 | ❌ |
 | AlmaLinux | 10.0 | ✅ |
 | OpenMandriva | 6.0 | ✅ |
 | OpenBSD | 7.7 | ✅ |
