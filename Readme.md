@@ -43,11 +43,11 @@ Repository with *.iso* images list for AtomOS
 | Fedora | 42-workstation | ✅ |
 | Fedora Silverblue | 42-silverblue | ✅ |
 | ChimeraOS | 2025.02.13 | ❓ |
-| Rocky Linux | 9.6 | ✅ |
+| Rocky Linux | 9.6 | ❌ |
 | Rocky Linux | 10.0 | ❌ |
-| AlmaLinux | 10.0 | ✅ |
+| AlmaLinux | 10.0 | ❌ |
 | OpenMandriva | 6.0 | ✅ |
 | OpenBSD | 7.7 | ✅ |
-| AlpineLinux | 3.22.0 | ✅ |
+| AlpineLinux | 3.22.0 | ❌ |
 | Virtio | — | ❓ |
 <!--status-end-->
