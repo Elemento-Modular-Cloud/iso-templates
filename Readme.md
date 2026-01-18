@@ -39,7 +39,7 @@ Repository with *.iso* images list for AtomOS
 | AlmaLinux | 9.7 | ✅ |
 | ArchLinux | latest | ✅ |
 | TempleOS | N/A | ✅ |
-| Debian | 13.2.0 | ✅ |
+| Debian | 13.2.0 | ❌ |
 | Fedora | 43-workstation | ✅ |
 | Fedora Silverblue | 43-silverblue | ✅ |
 | ChimeraOS | 2025.02.13 | ❓ |
