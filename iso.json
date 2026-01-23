@@ -1,281 +1,461 @@
 [
-  {
-    "name": "WindowsXP",
-    "iso_url": null,
-    "help": "https://support.microsoft.com/en-us/windows/windows-xp-support-has-ended-47b944b8-f4d3-82f2-9acc-21c79ee6ef5e",
-    "os_family": "windows",
-    "os_flavour": "windowsxp",
-    "os_version": "xp",
-    "libosinfo_id": "http://microsoft.com/win/xp"
-  },
-  {
-    "name": "Windows7",
-    "iso_url": null,
-    "help": "https://learn.microsoft.com/en-au/lifecycle/products/windows-7",
-    "os_family": "windows",
-    "os_flavour": "windows7",
-    "os_version": "7",
-    "libosinfo_id": "http://microsoft.com/win/7"
-  },
-  {
-    "name": "Windows10",
-    "iso_url": null,
-    "help": "https://www.microsoft.com/en-us/software-download/windows10ISO",
-    "os_family": "windows",
-    "os_flavour": "windows10",
-    "os_version": "10",
-    "libosinfo_id": "http://microsoft.com/win/10"
-  },
-  {
-    "name": "Windows11",
-    "iso_url": null,
-    "help": "https://www.microsoft.com/en-us/software-download/windows11",
-    "os_family": "windows",
-    "os_flavour": "windows11",
-    "os_version": "11",
-    "libosinfo_id": "http://microsoft.com/win/11"
-  },
-  {
-    "name": "WindowsServer2003",
-    "iso_url": null,
-    "help": "",
-    "os_family": "windows",
-    "os_flavour": "windowssrv2003",
-    "os_version": "srv2003",
-    "libosinfo_id": "http://microsoft.com/win/2k3"
-  },
-  {
-    "name": "WindowsServer2008",
-    "iso_url": null,
-    "help": "https://learn.microsoft.com/it-it/iis/install/installing-iis-7/install-windows-server-2008-and-windows-server-2008-r2",
-    "os_family": "windows",
-    "os_flavour": "windowssrv2008",
-    "os_version": "srv2008",
-    "libosinfo_id": "http://microsoft.com/win/2k8"
-  },
-  {
-    "name": "WindowsServer2012",
-    "iso_url": null,
-    "help": "https://www.microsoft.com/evalcenter/evaluate-windows-server-2012",
-    "os_family": "windows",
-    "os_flavour": "windowssrv2012",
-    "os_version": "srv2012",
-    "libosinfo_id": "http://microsoft.com/win/2k12"
-  },
-  {
-    "name": "WindowsServer2016",
-    "iso_url": null,
-    "help": "https://www.microsoft.com/evalcenter/evaluate-windows-server-2016",
-    "os_family": "windows",
-    "os_flavour": "windowssrv2016",
-    "os_version": "srv2016",
-    "libosinfo_id": "http://microsoft.com/win/2k16"
-  },
-  {
-    "name": "WindowsServer2019",
-    "iso_url": null,
-    "help": "https://www.microsoft.com/evalcenter/evaluate-windows-server-2019",
-    "os_family": "windows",
-    "os_flavour": "windowssrv2019",
-    "os_version": "srv2019",
-    "libosinfo_id": "http://microsoft.com/win/2k19"
-  },
-  {
-    "name": "WindowsServer2022",
-    "iso_url": null,
-    "help": "https://www.microsoft.com/evalcenter/evaluate-windows-server-2022",
-    "os_family": "windows",
-    "os_flavour": "windowssrv2022",
-    "os_version": "srv2022",
-    "libosinfo_id": "http://microsoft.com/win/2k22"
-  },
-  {
-    "name": "WindowsServer2025",
-    "iso_url": null,
-    "help": "https://www.microsoft.com/evalcenter/evaluate-windows-server-2025",
-    "os_family": "windows",
-    "os_flavour": "windowssrv2025",
-    "os_version": "srv2025",
-    "libosinfo_id": "http://microsoft.com/win/2k25"
-  },
-  {
-    "name": "Ubuntu",
-    "iso_url": "http://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.3-desktop-amd64.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "ubuntu",
-    "os_version": "24.04-desktop-LTS",
-    "libosinfo_id": "http://ubuntu.com/ubuntu/24.04"
-  },
-  {
-    "name": "Ubuntu",
-    "iso_url": "http://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.3-live-server-amd64.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "ubuntu",
-    "os_version": "24.04-server-LTS",
-    "libosinfo_id": null
-  },
-  {
-    "name": "Ubuntu",
-    "iso_url": "http://ubuntu.mirror.garr.it/ubuntu-releases/plucky/ubuntu-25.04-desktop-amd64.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "ubuntu",
-    "os_version": "25.04-desktop",
-    "libosinfo_id": "http://ubuntu.com/ubuntu/25.04"
-  },
-  {
-    "name": "Ubuntu",
-    "iso_url": "http://ubuntu.mirror.garr.it/ubuntu-releases/plucky/ubuntu-25.04-live-server-amd64.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "ubuntu",
-    "os_version": "25.04-server",
-    "libosinfo_id": null
-  },
-  {
-    "name": "Pop!_OS",
-    "iso_url": "https://iso.pop-os.org/22.04/amd64/intel/49/pop-os_22.04_amd64_intel_49.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "pop",
-    "os_version": "22.04",
-    "libosinfo_id": null
-  },
-  {
-    "name": "Pop!_OS",
-    "iso_url": "https://iso.pop-os.org/22.04/amd64/nvidia/49/pop-os_22.04_amd64_nvidia_49.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "pop",
-    "os_version": "22.04-nvidia",
-    "libosinfo_id": null
-  },
-  {
-    "name": "Mint",
-    "iso_url": "https://linuxmint.mirror.garr.it/linuxmint/iso/stable/22.2/linuxmint-22.2-cinnamon-64bit.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "mint",
-    "os_version": "22.2",
-    "libosinfo_id": null
-  },
-  {
-    "name": "AlmaLinux",
-    "iso_url": "https://almalinux.mirror.garr.it/9/isos/x86_64/AlmaLinux-9-latest-x86_64-boot.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "almalinux",
-    "os_version": "9.7",
-    "libosinfo_id": null
-  },
-  {
-    "name": "ArchLinux",
-    "iso_url": "http://archlinux.mirror.garr.it/archlinux/iso/latest/archlinux-x86_64.iso",
-    "help": "https://archlinux.org",
-    "os_family": "linux",
-    "os_flavour": "arch",
-    "os_version": "latest",
-    "libosinfo_id": "http://archlinux.org/archlinux/rolling"
-  },
-  {
-    "name": "TempleOS",
-    "iso_url": "https://templeos.org/Downloads/TempleOS.ISO",
-    "help": "https://templeos.org",
-    "os_family": "linux",
-    "os_flavour": "temple",
-    "os_version": "N/A",
-    "libosinfo_id": null
-  },
-  {
-    "name": "Debian",
-    "iso_url": "https://debian.mirror.garr.it/debian-cd/current/amd64/iso-cd/debian-13.2.0-amd64-netinst.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "debian",
-    "os_version": "13.2.0",
-    "libosinfo_id": "http://debian.org/debian/13"
-  },
-  {
-    "name": "Fedora",
-    "iso_url": "https://fedora.mirror.garr.it/fedora/linux/releases/43/Workstation/x86_64/iso/Fedora-Workstation-Live-43-1.6.x86_64.iso",
-    "help": "https://getfedora.org/en/workstation/download/",
-    "os_family": "linux",
-    "os_flavour": "fedora",
-    "os_version": "43-workstation",
-    "libosinfo_id": null
-  },
-  {
-    "name": "Fedora Silverblue",
-    "iso_url": "https://fedora.mirror.garr.it/fedora/linux/releases/43/Silverblue/x86_64/iso/Fedora-Silverblue-ostree-x86_64-43-1.6.iso",
-    "help": "https://getfedora.org/en/workstation/download/",
-    "os_family": "linux",
-    "os_flavour": "fedora",
-    "os_version": "43-silverblue",
-    "libosinfo_id": null
-  },
-  {
-    "name": "ChimeraOS",
-    "iso_url": "https://github.com/ChimeraOS/install-media/releases/download/2025-02-13_7e927cf/chimeraos-2025.02.13-x86_64.iso",
-    "help": "https://chimeraos.org",
-    "os_family": "linux",
-    "os_flavour": "chimera",
-    "os_version": "2025.02.13",
-    "libosinfo_id": null
-  },
-  {
-    "name": "Rocky Linux",
-    "iso_url": "https://rockylinux.mirror.garr.it/9/isos/x86_64/Rocky-9-latest-x86_64-boot.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "rocky",
-    "os_version": "9.7",
-    "libosinfo_id": null
-  },
-  {
-    "name": "Rocky Linux",
-    "iso_url": "https://rockylinux.mirror.garr.it/10/isos/x86_64/Rocky-10-latest-x86_64-boot.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "rocky",
-    "os_version": "10.1",
-    "libosinfo_id": null
-  },
-  {
-    "name": "AlmaLinux",
-    "iso_url": "http://almalinux.mirror.garr.it/10/isos/x86_64/AlmaLinux-10-latest-x86_64-minimal.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "almalinux",
-    "os_version": "10.1",
-    "libosinfo_id": null
-  },
-  {
-    "name": "OpenMandriva",
-    "iso_url": "https://openmandriva.mirror.garr.it/release_current/6.0/openmandriva-6.0-plasma6-wayland.x86_64.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "openmandriva",
-    "os_version": "6.0",
-    "libosinfo_id": null
-  },
-  {
-    "name": "OpenBSD",
-    "iso_url": "https://openbsd.mirror.garr.it/pub/OpenBSD/7.8/amd64/install78.iso",
-    "help": "",
-    "os_family": "bsd",
-    "os_flavour": "openbsd",
-    "os_version": "7.8",
-    "libosinfo_id": null
-  },
-  {
-    "name": "AlpineLinux",
-    "iso_url": "https://alpinelinux.mirror.garr.it/latest-stable/releases/x86_64/alpine-virt-3.23.0-x86_64.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "alpine",
-    "os_version": "3.23.0",
-    "libosinfo_id": null
-  }
+    {
+        "name": "WindowsXP",
+        "iso_url": null,
+        "help": "https://support.microsoft.com/en-us/windows/windows-xp-support-has-ended-47b944b8-f4d3-82f2-9acc-21c79ee6ef5e",
+        "os_family": "windows",
+        "os_flavour": "windowsxp",
+        "os_version": "xp",
+        "libosinfo_id": "http://microsoft.com/win/xp"
+    },
+    {
+        "name": "Windows7",
+        "iso_url": null,
+        "help": "https://learn.microsoft.com/en-au/lifecycle/products/windows-7",
+        "os_family": "windows",
+        "os_flavour": "windows7",
+        "os_version": "7",
+        "libosinfo_id": "http://microsoft.com/win/7"
+    },
+    {
+        "name": "Windows10",
+        "iso_url": null,
+        "help": "https://www.microsoft.com/en-us/software-download/windows10ISO",
+        "os_family": "windows",
+        "os_flavour": "windows10",
+        "os_version": "10",
+        "libosinfo_id": "http://microsoft.com/win/10"
+    },
+    {
+        "name": "Windows11",
+        "iso_url": null,
+        "help": "https://www.microsoft.com/en-us/software-download/windows11",
+        "os_family": "windows",
+        "os_flavour": "windows11",
+        "os_version": "11",
+        "libosinfo_id": "http://microsoft.com/win/11"
+    },
+    {
+        "name": "WindowsServer2003",
+        "iso_url": null,
+        "help": "",
+        "os_family": "windows",
+        "os_flavour": "windowssrv2003",
+        "os_version": "srv2003",
+        "libosinfo_id": "http://microsoft.com/win/2k3"
+    },
+    {
+        "name": "WindowsServer2008",
+        "iso_url": null,
+        "help": "https://learn.microsoft.com/it-it/iis/install/installing-iis-7/install-windows-server-2008-and-windows-server-2008-r2",
+        "os_family": "windows",
+        "os_flavour": "windowssrv2008",
+        "os_version": "srv2008",
+        "libosinfo_id": "http://microsoft.com/win/2k8"
+    },
+    {
+        "name": "WindowsServer2012",
+        "iso_url": null,
+        "help": "https://www.microsoft.com/evalcenter/evaluate-windows-server-2012",
+        "os_family": "windows",
+        "os_flavour": "windowssrv2012",
+        "os_version": "srv2012",
+        "libosinfo_id": "http://microsoft.com/win/2k12"
+    },
+    {
+        "name": "WindowsServer2016",
+        "iso_url": null,
+        "help": "https://www.microsoft.com/evalcenter/evaluate-windows-server-2016",
+        "os_family": "windows",
+        "os_flavour": "windowssrv2016",
+        "os_version": "srv2016",
+        "libosinfo_id": "http://microsoft.com/win/2k16"
+    },
+    {
+        "name": "WindowsServer2019",
+        "iso_url": null,
+        "help": "https://www.microsoft.com/evalcenter/evaluate-windows-server-2019",
+        "os_family": "windows",
+        "os_flavour": "windowssrv2019",
+        "os_version": "srv2019",
+        "libosinfo_id": "http://microsoft.com/win/2k19"
+    },
+    {
+        "name": "WindowsServer2022",
+        "iso_url": null,
+        "help": "https://www.microsoft.com/evalcenter/evaluate-windows-server-2022",
+        "os_family": "windows",
+        "os_flavour": "windowssrv2022",
+        "os_version": "srv2022",
+        "libosinfo_id": "http://microsoft.com/win/2k22"
+    },
+        {
+        "name": "WindowsServer2025",
+        "iso_url": null,
+        "help": "https://www.microsoft.com/evalcenter/evaluate-windows-server-2025",
+        "os_family": "windows",
+        "os_flavour": "windowssrv2025",
+        "os_version": "srv2025",
+        "libosinfo_id": "http://microsoft.com/win/2k25"
+    },
+    {
+        "name": "Ubuntu",
+        "iso_url": "https://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.3-desktop-amd64.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "ubuntu",
+        "os_version": "24.04-noble-desktop-LTS",
+        "libosinfo_id": "http://ubuntu.com/ubuntu/24.04"
+    },
+    {
+        "name": "Ubuntu",
+        "iso_url": "https://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.3-live-server-amd64.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "ubuntu",
+        "os_version": "24.04-noble-server-LTS",
+        "libosinfo_id": null
+    },
+    {
+        "name": "Ubuntu",
+        "iso_url": "https://ubuntu.mirror.garr.it/ubuntu-releases/jammy/ubuntu-24.04.5-desktop-amd64.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "ubuntu",
+        "os_version": "24.04-jammy-desktop-LTS",
+        "libosinfo_id": "http://ubuntu.com/ubuntu/24.04"
+    },
+    {
+        "name": "Ubuntu",
+        "iso_url": "https://ubuntu.mirror.garr.it/ubuntu-releases/jammy/ubuntu-24.04.5-live-server-amd64.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "ubuntu",
+        "os_version": "24.04-jammy-server-LTS",
+        "libosinfo_id": null
+    },
+    {
+        "name": "Ubuntu",
+        "iso_url": "https://ubuntu.mirror.garr.it/ubuntu-releases/plucky/ubuntu-25.04-desktop-amd64.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "ubuntu",
+        "os_version": "25.04-plucky-desktop",
+        "libosinfo_id": "http://ubuntu.com/ubuntu/25.04"
+    },
+    {
+        "name": "Ubuntu",
+        "iso_url": "https://ubuntu.mirror.garr.it/ubuntu-releases/plucky/ubuntu-25.04-live-server-amd64.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "ubuntu",
+        "os_version": "25.04-plucky-server",
+        "libosinfo_id": null
+    },
+    {
+        "name": "Ubuntu",
+        "iso_url": "https://ubuntu.mirror.garr.it/ubuntu-releases/questing/ubuntu-25.10-desktop-amd64.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "ubuntu",
+        "os_version": "25.10-questing-desktop",
+        "libosinfo_id": "http://ubuntu.com/ubuntu/25.10"
+    },
+    {
+        "name": "Ubuntu",
+        "iso_url": "https://ubuntu.mirror.garr.it/ubuntu-releases/questing/ubuntu-25.10-live-server-amd64.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "ubuntu",
+        "os_version": "25.10-questing-server",
+        "libosinfo_id": null
+    },
+    {
+        "name": "Pop!_OS",
+        "iso_url": "https://iso.pop-os.org/22.04/amd64/intel/58/pop-os_22.04_amd64_intel_58.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "pop",
+        "os_version": "22.04",
+        "libosinfo_id": null
+    },
+    {
+        "name": "Pop!_OS",
+        "iso_url": "https://iso.pop-os.org/22.04/amd64/nvidia/58/pop-os_22.04_amd64_nvidia_58.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "pop",
+        "os_version": "22.04-nvidia",
+        "libosinfo_id": null
+    },
+    {
+        "name": "Mint",
+        "iso_url": "https://linuxmint.mirror.garr.it/linuxmint/iso/debian/lmde-7-cinnamon-64bit.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "mint",
+        "os_version": "lmde-7",
+        "libosinfo_id": null
+    },
+    {
+        "name": "Mint",
+        "iso_url": "https://linuxmint.mirror.garr.it/linuxmint/iso/stable/22.2/linuxmint-22.2-cinnamon-64bit.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "mint",
+        "os_version": "22.2-cinnamon",
+        "libosinfo_id": null
+    },
+    {
+        "name": "Mint",
+        "iso_url": "https://linuxmint.mirror.garr.it/linuxmint/iso/stable/22.2/linuxmint-22.2-mate-64bit.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "mint",
+        "os_version": "22.2-mate",
+        "libosinfo_id": null
+    },
+    {
+        "name": "Mint",
+        "iso_url": "https://linuxmint.mirror.garr.it/linuxmint/iso/stable/22.2/linuxmint-22.2-xfce-64bit.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "mint",
+        "os_version": "22.2-xfce",
+        "libosinfo_id": null
+    },
+    {
+        "name": "AlmaLinux",
+        "iso_url": "https://almalinux.mirror.garr.it/9.7/isos/x86_64/AlmaLinux-9.7-x86_64-boot.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "almalinux",
+        "os_version": "9.7-boot-x86_64",
+        "libosinfo_id": null
+    },
+    {
+        "name": "AlmaLinux",
+        "iso_url": "https://almalinux.mirror.garr.it/9.7/isos/x86_64/AlmaLinux-9.7-x86_64-minimal.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "almalinux",
+        "os_version": "9.7-minimal-x86_64",
+        "libosinfo_id": null
+    },
+    {
+        "name": "AlmaLinux",
+        "iso_url": "https://almalinux.mirror.garr.it/10.0/isos/x86_64/AlmaLinux-10.0-x86_64-boot.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "almalinux",
+        "os_version": "10.0-boot-x86_64",
+        "libosinfo_id": null
+    },
+    {
+        "name": "AlmaLinux",
+        "iso_url": "https://almalinux.mirror.garr.it/10.0/isos/x86_64/AlmaLinux-10.0-x86_64-minimal.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "almalinux",
+        "os_version": "10.0-minimal-x86_64",
+        "libosinfo_id": null
+    },
+    {
+        "name": "AlmaLinux",
+        "iso_url": "https://almalinux.mirror.garr.it/10.1/isos/x86_64/AlmaLinux-10.1-x86_64-boot.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "almalinux",
+        "os_version": "10.1-boot-x86_64",
+        "libosinfo_id": null
+    },
+    {
+        "name": "AlmaLinux",
+        "iso_url": "https://almalinux.mirror.garr.it/10.1/isos/x86_64/AlmaLinux-10.1-x86_64-minimal.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "almalinux",
+        "os_version": "10.1-minimal-x86_64",
+        "libosinfo_id": null
+    },
+    {
+        "name": "ArchLinux",
+        "iso_url": "http://archlinux.mirror.garr.it/archlinux/iso/latest/archlinux-x86_64.iso",
+        "help": "https://archlinux.org",
+        "os_family": "linux",
+        "os_flavour": "arch",
+        "os_version": "latest",
+        "libosinfo_id": "http://archlinux.org/archlinux/rolling"
+    },
+    {
+        "name": "TempleOS",
+        "iso_url": "https://templeos.org/Downloads/TempleOS.ISO",
+        "help": "https://templeos.org",
+        "os_family": "linux",
+        "os_flavour": "temple",
+        "os_version": "N/A",
+        "libosinfo_id": null
+    },
+    {
+        "name": "Debian",
+        "iso_url": "https://cdimage.debian.org/cdimage/archive/12.12.0/amd64/iso-cd/debian-12.12.0-amd64-netinst.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "debian",
+        "os_version": "12.12.0",
+        "libosinfo_id": null
+    },
+    {
+        "name": "Debian",
+        "iso_url": "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-13.2.0-amd64-netinst.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "debian",
+        "os_version": "13.2.0",
+        "libosinfo_id": null
+    },
+    {
+        "name": "Fedora Workstation",
+        "iso_url": "https://fedora.mirror.garr.it/fedora/linux/releases/42/Workstation/x86_64/iso/Fedora-Workstation-Live-42-1.1.x86_64.iso",
+        "help": "https://getfedora.org/en/workstation/download/",
+        "os_family": "linux",
+        "os_flavour": "fedora",
+        "os_version": "42-workstation",
+        "libosinfo_id": null
+    },
+    {
+        "name": "Fedora Silverblue",
+        "iso_url": "https://fedora.mirror.garr.it/fedora/linux/releases/42/Silverblue/x86_64/iso/Fedora-Silverblue-ostree-x86_64-42-1.1.iso",
+        "help": "https://getfedora.org/en/workstation/download/",
+        "os_family": "linux",
+        "os_flavour": "fedora",
+        "os_version": "42-silverblue",
+        "libosinfo_id": null
+    },
+    {
+        "name": "Fedora Server",
+        "iso_url": "https://fedora.mirror.garr.it/mirrors/fedora/linux/releases/42/Server/x86_64/iso/Fedora-Server-netinst-x86_64-42-1.1.iso",
+        "help": "https://getfedora.org/en/workstation/download/",
+        "os_family": "linux",
+        "os_flavour": "fedora",
+        "os_version": "42-server",
+        "libosinfo_id": null
+    },
+    {
+        "name": "Fedora Workstation",
+        "iso_url": "https://fedora.mirror.garr.it/mirrors/fedora/linux/releases/43/Workstation/x86_64/iso/Fedora-Workstation-Live-43-1.6.x86_64.iso",
+        "help": "https://getfedora.org/en/workstation/download/",
+        "os_family": "linux",
+        "os_flavour": "fedora",
+        "os_version": "43-workstation",
+        "libosinfo_id": null
+    },
+    {
+        "name": "Fedora Silverblue",
+        "iso_url": "https://fedora.mirror.garr.it/mirrors/fedora/linux/releases/43/Silverblue/x86_64/iso/Fedora-Silverblue-ostree-x86_64-43-1.6.iso",
+        "help": "https://getfedora.org/en/workstation/download/",
+        "os_family": "linux",
+        "os_flavour": "fedora",
+        "os_version": "43-silverblue",
+        "libosinfo_id": null
+    },
+    {
+        "name": "Fedora Server",
+        "iso_url": "https://fedora.mirror.garr.it/mirrors/fedora/linux/releases/43/Server/x86_64/iso/Fedora-Server-netinst-x86_64-43-1.6.iso",
+        "help": "https://getfedora.org/en/workstation/download/",
+        "os_family": "linux",
+        "os_flavour": "fedora",
+        "os_version": "43-server",
+        "libosinfo_id": null
+    },
+    {
+        "name": "Rocky Linux",
+        "iso_url": "https://rockylinux.mirror.garr.it/9.6/isos/x86_64/Rocky-9.6-x86_64-boot.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "rocky",
+        "os_version": "9.6-boot",
+        "libosinfo_id": null
+    },
+    {
+        "name": "Rocky Linux",
+        "iso_url": "https://rockylinux.mirror.garr.it/9.6/isos/x86_64/Rocky-9.6-x86_64-minimal.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "rocky",
+        "os_version": "9.6-minimal",
+        "libosinfo_id": null
+    },
+    {
+        "name": "Rocky Linux",
+        "iso_url": "https://rockylinux.mirror.garr.it/9.7/isos/x86_64/Rocky-9.7-x86_64-boot.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "rocky",
+        "os_version": "9.7-boot",
+        "libosinfo_id": null
+    },
+    {
+        "name": "Rocky Linux",
+        "iso_url": "https://rockylinux.mirror.garr.it/9.7/isos/x86_64/Rocky-9.7-x86_64-minimal.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "rocky",
+        "os_version": "9.7-minimal",
+        "libosinfo_id": null
+    },
+    {
+        "name": "Rocky Linux",
+        "iso_url": "https://rockylinux.mirror.garr.it/10.1/isos/x86_64/Rocky-10.1-x86_64-boot.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "rocky",
+        "os_version": "10.1-boot",
+        "libosinfo_id": null
+    },
+    {
+        "name": "Rocky Linux",
+        "iso_url": "https://rockylinux.mirror.garr.it/10.1/isos/x86_64/Rocky-10.1-x86_64-minimal.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "rocky",
+        "os_version": "10.1-minimal",
+        "libosinfo_id": null
+    },
+    {
+        "name": "OpenBSD",
+        "iso_url": "http://openbsd.mirror.garr.it/pub/OpenBSD/7.6/amd64/install76.iso",
+        "help": "",
+        "os_family": "bsd",
+        "os_flavour": "openbsd",
+        "os_version": "7.6",
+        "libosinfo_id": null
+    },
+    {
+        "name": "OpenBSD",
+        "iso_url": "http://openbsd.mirror.garr.it/pub/OpenBSD/7.7/amd64/install77.iso",
+        "help": "",
+        "os_family": "bsd",
+        "os_flavour": "openbsd",
+        "os_version": "7.7",
+        "libosinfo_id": null
+    },
+    {
+        "name": "OpenBSD",
+        "iso_url": "http://openbsd.mirror.garr.it/pub/OpenBSD/7.8/amd64/install78.iso",
+        "help": "",
+        "os_family": "bsd",
+        "os_flavour": "openbsd",
+        "os_version": "7.8",
+        "libosinfo_id": null
+    },
+    {
+        "name": "AlpineLinux",
+        "iso_url": "https://alpinelinux.mirror.garr.it/v3.23/releases/x86_64/alpine-standard-3.23.0-x86_64.iso",
+        "help": "",
+        "os_family": "linux",
+        "os_flavour": "alpine",
+        "os_version": "3.23.0",
+        "libosinfo_id": null
+    }
 ]
