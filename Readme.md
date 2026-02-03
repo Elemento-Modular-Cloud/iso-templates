@@ -11,7 +11,10 @@
 
 # AtomOS iso templates
 
-Repository with *.iso* images list for AtomOS
+Repository with *.iso* images list for AtomOS.
+Consider that the `iso.json` file is used in various way:
+- Electros: uses that file to show the supported flavour and family if at least one record in a flavour/family has an url in the `iso_url` field.
+- AtomOS: to download the iso in storage server as a valid iso volume
 
 ## Link Status
 <!--status-start-->
