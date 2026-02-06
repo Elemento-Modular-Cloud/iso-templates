@@ -3,7 +3,7 @@ name: Verify that links all works
 on:
     workflow_dispatch:
     schedule:
-        - cron: '0 4 * * 0' # every Sunday at midnight
+        - cron: '0 13 */2 * *' # every 2 days at 13
 
 jobs:
     verify_links:
@@ -64,7 +64,7 @@ jobs:
                         if .status >= 200 and .status < 300 then "✅"
                         elif .status >= 300 and .status < 400 then "❓"
                         elif .status >= 400 then "❌"
-                        else "❌"  # status like 0 or unrecognized numeric codes
+                        else "NULL"  # status like 0 or unrecognized numeric codes
                         end
                     else "❓" end) +
                     " |"

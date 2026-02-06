@@ -11,46 +11,57 @@
 
 # AtomOS iso templates
 
-Repository with *.iso* images list for AtomOS.
-Consider that the `iso.json` file is used in various way:
-- Electros: uses that file to show the supported flavour and family if at least one record in a flavour/family has an url in the `iso_url` field.
-- AtomOS: to download the iso in storage server as a valid iso volume
+Repository with *.iso* images list for AtomOS
 
 ## Link Status
 <!--status-start-->
 | Name | Version | Status |
 |------|---------|--------|
 | Ubuntu | 25.04-server-cloud | ✅ |
-| WindowsXP | xp | ❌ |
-| Windows7 | 7 | ❌ |
-| Windows10 | 10 | ❌ |
-| Windows11 | 11 | ❌ |
-| WindowsServer2003 | srv2003 | ❌ |
-| WindowsServer2008 | srv2008 | ❌ |
-| WindowsServer2012 | srv2012 | ❌ |
-| WindowsServer2016 | srv2016 | ❌ |
-| WindowsServer2019 | srv2019 | ❌ |
-| WindowsServer2022 | srv2022 | ❌ |
-| WindowsServer2025 | srv2025 | ❌ |
-| Ubuntu | 24.04-desktop-LTS | ✅ |
-| Ubuntu | 24.04-server-LTS | ✅ |
-| Ubuntu | 25.04-desktop | ✅ |
-| Ubuntu | 25.04-server | ✅ |
+| WindowsXP | xp | NULL |
+| Windows7 | 7 | NULL |
+| Windows10 | 10 | NULL |
+| Windows11 | 11 | NULL |
+| WindowsServer2003 | srv2003 | NULL |
+| WindowsServer2008 | srv2008 | NULL |
+| WindowsServer2012 | srv2012 | NULL |
+| WindowsServer2016 | srv2016 | NULL |
+| WindowsServer2019 | srv2019 | NULL |
+| WindowsServer2022 | srv2022 | NULL |
+| WindowsServer2025 | srv2025 | NULL |
+| Ubuntu | 24.04-noble-desktop-LTS | ✅ |
+| Ubuntu | 24.04-noble-server-LTS | ✅ |
+| Ubuntu | 25.04-plucky-desktop | ✅ |
+| Ubuntu | 25.04-plucky-server | ✅ |
+| Ubuntu | 25.10-questing-desktop | ✅ |
+| Ubuntu | 25.10-questing-server | ✅ |
 | Pop!_OS | 22.04 | ✅ |
 | Pop!_OS | 22.04-nvidia | ✅ |
-| Mint | 22.2 | ✅ |
-| AlmaLinux | 9.7 | ✅ |
+| Mint | lmde-7 | ✅ |
+| Mint | 22.2-cinnamon | ✅ |
+| Mint | 22.2-mate | ✅ |
+| Mint | 22.2-xfce | ✅ |
+| AlmaLinux | 9.latest-boot-x86_64 | ✅ |
+| AlmaLinux | 9.latest-minimal-x86_64 | ✅ |
+| AlmaLinux | 10.latest-boot-x86_64 | ✅ |
+| AlmaLinux | 10.latest-minimal-x86_64 | ✅ |
 | ArchLinux | latest | ✅ |
 | TempleOS | N/A | ✅ |
-| Debian | 13.2.0 | ❌ |
-| Fedora | 43-workstation | ✅ |
+| Debian | 13.3.0 | ✅ |
+| Fedora Workstation | 42-workstation | ✅ |
+| Fedora Silverblue | 42-silverblue | ✅ |
+| Fedora Server | 42-server | ✅ |
+| Fedora Workstation | 43-workstation | ✅ |
 | Fedora Silverblue | 43-silverblue | ✅ |
-| ChimeraOS | 2025.02.13 | ❓ |
-| Rocky Linux | 9.7 | ✅ |
-| Rocky Linux | 10.1 | ✅ |
-| AlmaLinux | 10.1 | ✅ |
-| OpenMandriva | 6.0 | ✅ |
+| Fedora Server | 43-server | ✅ |
+| Rocky Linux | 9.latest-boot | ✅ |
+| Rocky Linux | 9.latest-minimal | ✅ |
+| Rocky Linux | 10.latest-boot | ✅ |
+| Rocky Linux | 10.latest-minimal | ✅ |
+| OpenBSD | 7.6 | ✅ |
+| OpenBSD | 7.7 | ✅ |
 | OpenBSD | 7.8 | ✅ |
 | AlpineLinux | 3.23.0 | ✅ |
 | Virtio | — | ❓ |
+| Virtio | — | ✅ |
 <!--status-end-->
