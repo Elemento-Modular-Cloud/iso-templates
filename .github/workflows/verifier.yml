@@ -1,0 +1,85 @@
+name: Verify that links all works
+
+on:
+    workflow_dispatch:
+    schedule:
+        - cron: '0 13 */2 * *' # every 2 days at 13
+
+jobs:
+    verify_links:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v4
+              with:
+                  token: ${{ secrets.REPO_KEY }}
+                  submodules: recursive
+                  ref: main
+
+            - name: Install dependencies
+              run: |
+                  sudo apt-get update
+                  sudo apt-get install -y wget curl
+
+            - name: Create report for iso file
+              run: ./url_verifier.sh --file iso.json > report_iso.json
+
+            - name: Create report for tools file
+              run: ./url_verifier.sh --file tools.json > report_tools.json
+
+            - name: Create report for cloudiso file
+              run: ./url_verifier.sh --file cloudiso.json > report_cloudiso.json
+
+            - name: push iso report
+              uses: actions/upload-artifact@v4
+              with:
+                  name: report_iso.json
+                  path: report_iso.json
+            
+            - name: push tools report
+              uses: actions/upload-artifact@v4
+              with:
+                  name: report_tools.json
+                  path: report_tools.json
+
+            - name: push cloudiso report
+              uses: actions/upload-artifact@v4
+              with:
+                  name: report_cloudiso.json
+                  path: report_cloudiso.json
+
+            - name: Update README with status table
+              run: |
+                echo "| Name | Version | Status |" > table.md
+                echo "|------|---------|--------|" >> table.md
+
+                for report in report_*.json; do
+                  # Use perl to remove control characters safely
+                  perl -pe 's/[\x00-\x1F]//g' "$report" | jq -r '
+                    .[] |
+                    "| \(.name) | " +
+                    (if has("os_version") then .os_version else "—" end) +
+                    " | " +
+                    (if (.status | type == "number") then
+                        if .status >= 200 and .status < 300 then "✅"
+                        elif .status >= 300 and .status < 400 then "❓"
+                        elif .status >= 400 then "❌"
+                        else "NULL"  # status like 0 or unrecognized numeric codes
+                        end
+                    else "❓" end) +
+                    " |"
+                  ' >> table.md
+                done
+
+                # Replace section in README.md
+                awk '/<!--status-start-->/{print;system("cat table.md");next} /<!--status-end-->/{print;next} 1' dummy.md > Readme.new.md
+                mv Readme.new.md Readme.md
+
+            - name: Commit and push if README changed
+              run: |
+                git config user.name "github-actions"
+                git config user.email "github-actions@github.com"
+                git add Readme.md
+                git diff --cached --quiet || git commit -m "Update README with link status report"
+                git push origin main
+
