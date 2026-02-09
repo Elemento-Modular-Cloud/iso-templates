@@ -18,21 +18,19 @@ Repository with *.iso* images list for AtomOS
 | Name | Version | Status |
 |------|---------|--------|
 | Ubuntu | 25.04-server-cloud | ✅ |
-| WindowsXP | xp | ❌ |
-| Windows7 | 7 | ❌ |
-| Windows10 | 10 | ❌ |
-| Windows11 | 11 | ❌ |
-| WindowsServer2003 | srv2003 | ❌ |
-| WindowsServer2008 | srv2008 | ❌ |
-| WindowsServer2012 | srv2012 | ❌ |
-| WindowsServer2016 | srv2016 | ❌ |
-| WindowsServer2019 | srv2019 | ❌ |
-| WindowsServer2022 | srv2022 | ❌ |
-| WindowsServer2025 | srv2025 | ❌ |
+| WindowsXP | xp | NULL |
+| Windows7 | 7 | NULL |
+| Windows10 | 10 | NULL |
+| Windows11 | 11 | NULL |
+| WindowsServer2003 | srv2003 | NULL |
+| WindowsServer2008 | srv2008 | NULL |
+| WindowsServer2012 | srv2012 | NULL |
+| WindowsServer2016 | srv2016 | NULL |
+| WindowsServer2019 | srv2019 | NULL |
+| WindowsServer2022 | srv2022 | NULL |
+| WindowsServer2025 | srv2025 | NULL |
 | Ubuntu | 24.04-noble-desktop-LTS | ✅ |
 | Ubuntu | 24.04-noble-server-LTS | ✅ |
-| Ubuntu | 24.04-jammy-desktop-LTS | ❌ |
-| Ubuntu | 24.04-jammy-server-LTS | ❌ |
 | Ubuntu | 25.04-plucky-desktop | ✅ |
 | Ubuntu | 25.04-plucky-server | ✅ |
 | Ubuntu | 25.10-questing-desktop | ✅ |
@@ -43,28 +41,23 @@ Repository with *.iso* images list for AtomOS
 | Mint | 22.2-cinnamon | ✅ |
 | Mint | 22.2-mate | ✅ |
 | Mint | 22.2-xfce | ✅ |
-| AlmaLinux | 9.7-boot-x86_64 | ✅ |
-| AlmaLinux | 9.7-minimal-x86_64 | ✅ |
-| AlmaLinux | 10.0-boot-x86_64 | ❌ |
-| AlmaLinux | 10.0-minimal-x86_64 | ❌ |
-| AlmaLinux | 10.1-boot-x86_64 | ✅ |
-| AlmaLinux | 10.1-minimal-x86_64 | ✅ |
+| AlmaLinux | 9.latest-boot-x86_64 | ✅ |
+| AlmaLinux | 9.latest-minimal-x86_64 | ✅ |
+| AlmaLinux | 10.latest-boot-x86_64 | ✅ |
+| AlmaLinux | 10.latest-minimal-x86_64 | ✅ |
 | ArchLinux | latest | ✅ |
 | TempleOS | N/A | ✅ |
-| Debian | 12.12.0 | ❓ |
-| Debian | 13.2.0 | ❌ |
+| Debian | 13.3.0 | ✅ |
 | Fedora Workstation | 42-workstation | ✅ |
 | Fedora Silverblue | 42-silverblue | ✅ |
 | Fedora Server | 42-server | ✅ |
 | Fedora Workstation | 43-workstation | ✅ |
 | Fedora Silverblue | 43-silverblue | ✅ |
 | Fedora Server | 43-server | ✅ |
-| Rocky Linux | 9.6-boot | ❌ |
-| Rocky Linux | 9.6-minimal | ❌ |
-| Rocky Linux | 9.7-boot | ✅ |
-| Rocky Linux | 9.7-minimal | ✅ |
-| Rocky Linux | 10.1-boot | ✅ |
-| Rocky Linux | 10.1-minimal | ✅ |
+| Rocky Linux | 9.latest-boot | ✅ |
+| Rocky Linux | 9.latest-minimal | ✅ |
+| Rocky Linux | 10.latest-boot | ✅ |
+| Rocky Linux | 10.latest-minimal | ✅ |
 | OpenBSD | 7.6 | ✅ |
 | OpenBSD | 7.7 | ✅ |
 | OpenBSD | 7.8 | ✅ |
