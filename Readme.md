@@ -29,10 +29,10 @@ Repository with *.iso* images list for AtomOS
 | WindowsServer2019 | srv2019 | NULL |
 | WindowsServer2022 | srv2022 | NULL |
 | WindowsServer2025 | srv2025 | NULL |
-| Ubuntu | 24.04-noble-desktop-LTS | ✅ |
+| Ubuntu | 24.04-noble-desktop-LTS | ❌ |
 | Ubuntu | 24.04-noble-server-LTS | ✅ |
-| Ubuntu | 25.04-plucky-desktop | ✅ |
-| Ubuntu | 25.04-plucky-server | ✅ |
+| Ubuntu | 25.04-plucky-desktop | ❌ |
+| Ubuntu | 25.04-plucky-server | ❌ |
 | Ubuntu | 25.10-questing-desktop | ✅ |
 | Ubuntu | 25.10-questing-server | ✅ |
 | Pop!_OS | 22.04 | ✅ |
