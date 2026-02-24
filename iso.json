@@ -100,7 +100,7 @@
   },
   {
     "name": "Ubuntu",
-    "iso_url": "https://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.3-desktop-amd64.iso",
+    "iso_url": "https://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.4-desktop-amd64.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "ubuntu",
@@ -109,30 +109,12 @@
   },
   {
     "name": "Ubuntu",
-    "iso_url": "https://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.3-live-server-amd64.iso",
+    "iso_url": "https://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.4-live-server-amd64.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "ubuntu",
     "os_version": "24.04-noble-server-LTS",
     "libosinfo_id": "http://ubuntu.com/ubuntu/24.04"
-  },
-  {
-    "name": "Ubuntu",
-    "iso_url": "https://ubuntu.mirror.garr.it/ubuntu-releases/plucky/ubuntu-25.04-desktop-amd64.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "ubuntu",
-    "os_version": "25.04-plucky-desktop",
-    "libosinfo_id": "http://ubuntu.com/ubuntu/25.04"
-  },
-  {
-    "name": "Ubuntu",
-    "iso_url": "https://ubuntu.mirror.garr.it/ubuntu-releases/plucky/ubuntu-25.04-live-server-amd64.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "ubuntu",
-    "os_version": "25.04-plucky-server",
-    "libosinfo_id": "http://ubuntu.com/ubuntu/25.04"
   },
   {
     "name": "Ubuntu",
