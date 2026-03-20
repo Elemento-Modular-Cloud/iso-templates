@@ -244,11 +244,11 @@
   },
   {
     "name": "Debian",
-    "iso_url": "https://debian.mirror.garr.it/debian-cd/current/amd64/iso-cd/debian-13.3.0-amd64-netinst.iso",
+    "iso_url": "https://debian.mirror.garr.it/debian-cd/current/amd64/iso-cd/debian-13.4.0-amd64-netinst.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "debian",
-    "os_version": "13.3.0",
+    "os_version": "13.4.0",
     "libosinfo_id": "http://debian.org/debian/13"
   },
   {
