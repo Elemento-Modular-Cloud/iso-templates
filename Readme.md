@@ -17,7 +17,7 @@ Repository with *.iso* images list for AtomOS
 <!--status-start-->
 | Name | Version | Status |
 |------|---------|--------|
-| Ubuntu | 25.04-server-cloud | ✅ |
+| Ubuntu | 25.04-server-cloud | ❌ |
 | WindowsXP | xp | NULL |
 | Windows7 | 7 | NULL |
 | Windows10 | 10 | NULL |
