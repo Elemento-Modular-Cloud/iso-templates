@@ -343,21 +343,12 @@
   },
   {
     "name": "OpenBSD",
-    "iso_url": "http://openbsd.mirror.garr.it/pub/OpenBSD/7.6/amd64/install76.iso",
-    "help": "",
-    "os_family": "bsd",
-    "os_flavour": "openbsd",
-    "os_version": "7.6",
-    "libosinfo_id": "http://openbsd.org/openbsd/7.6"
-  },
-  {
-    "name": "OpenBSD",
     "iso_url": "http://openbsd.mirror.garr.it/pub/OpenBSD/7.7/amd64/install77.iso",
     "help": "",
     "os_family": "bsd",
     "os_flavour": "openbsd",
     "os_version": "7.7",
-    "libosinfo_id": "http://openbsd.org/openbsd/7.7"
+    "libosinfo_id": null
   },
   {
     "name": "OpenBSD",

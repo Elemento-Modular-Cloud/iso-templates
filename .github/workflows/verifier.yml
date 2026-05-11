@@ -10,7 +10,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repo
-              uses: actions/checkout@v4
+              uses: actions/checkout@v5
               with:
                   token: ${{ secrets.REPO_KEY }}
                   submodules: recursive
@@ -31,22 +31,25 @@ jobs:
               run: ./url_verifier.sh --file cloudiso.json > report_cloudiso.json
 
             - name: push iso report
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v7
               with:
                   name: report_iso.json
                   path: report_iso.json
+                  retention-days: 3
             
             - name: push tools report
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v7
               with:
                   name: report_tools.json
                   path: report_tools.json
+                  retention-days: 3
 
             - name: push cloudiso report
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v7
               with:
                   name: report_cloudiso.json
                   path: report_cloudiso.json
+                  retention-days: 3
 
             - name: Update README with status table
               run: |
