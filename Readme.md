@@ -17,7 +17,7 @@ Repository with *.iso* images list for AtomOS
 <!--status-start-->
 | Name | Version | Status |
 |------|---------|--------|
-| Ubuntu | 25.04-server-cloud | ✅ |
+| Ubuntu | 25.04-server-cloud | ❌ |
 | WindowsXP | xp | NULL |
 | Windows7 | 7 | NULL |
 | Windows10 | 10 | NULL |
@@ -29,10 +29,8 @@ Repository with *.iso* images list for AtomOS
 | WindowsServer2019 | srv2019 | NULL |
 | WindowsServer2022 | srv2022 | NULL |
 | WindowsServer2025 | srv2025 | NULL |
-| Ubuntu | 24.04-noble-desktop-LTS | ❌ |
+| Ubuntu | 24.04-noble-desktop-LTS | ✅ |
 | Ubuntu | 24.04-noble-server-LTS | ✅ |
-| Ubuntu | 25.04-plucky-desktop | ❌ |
-| Ubuntu | 25.04-plucky-server | ❌ |
 | Ubuntu | 25.10-questing-desktop | ✅ |
 | Ubuntu | 25.10-questing-server | ✅ |
 | Pop!_OS | 22.04 | ✅ |
@@ -47,7 +45,7 @@ Repository with *.iso* images list for AtomOS
 | AlmaLinux | 10.latest-minimal-x86_64 | ✅ |
 | ArchLinux | latest | ✅ |
 | TempleOS | N/A | ✅ |
-| Debian | 13.3.0 | ✅ |
+| Debian | 13.4.0 | ✅ |
 | Fedora Workstation | 42-workstation | ✅ |
 | Fedora Silverblue | 42-silverblue | ✅ |
 | Fedora Server | 42-server | ✅ |
@@ -58,7 +56,7 @@ Repository with *.iso* images list for AtomOS
 | Rocky Linux | 9.latest-minimal | ✅ |
 | Rocky Linux | 10.latest-boot | ✅ |
 | Rocky Linux | 10.latest-minimal | ✅ |
-| OpenBSD | 7.6 | ✅ |
+| OpenBSD | 7.6 | ❌ |
 | OpenBSD | 7.7 | ✅ |
 | OpenBSD | 7.8 | ✅ |
 | AlpineLinux | 3.23.0 | ✅ |
