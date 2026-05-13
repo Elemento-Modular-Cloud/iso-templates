@@ -56,7 +56,6 @@ Repository with *.iso* images list for AtomOS
 | Rocky Linux | 9.latest-minimal | ✅ |
 | Rocky Linux | 10.latest-boot | ✅ |
 | Rocky Linux | 10.latest-minimal | ✅ |
-| OpenBSD | 7.6 | ❌ |
 | OpenBSD | 7.7 | ✅ |
 | OpenBSD | 7.8 | ✅ |
 | AlpineLinux | 3.23.0 | ✅ |
