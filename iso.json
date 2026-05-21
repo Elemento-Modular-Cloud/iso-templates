@@ -135,6 +135,51 @@
     "libosinfo_id": "http://ubuntu.com/ubuntu/25.10"
   },
   {
+    "name": "Ubuntu",
+    "iso_url": "https://ubuntu.mirror.garr.it/ubuntu-releases/resolute/ubuntu-26.04-desktop-amd64.iso",
+    "help": "",
+    "os_family": "linux",
+    "os_flavour": "ubuntu",
+    "os_version": "26.04-resolute-desktop",
+    "libosinfo_id": "http://ubuntu.com/ubuntu/26.04"
+  },
+  {
+    "name": "Ubuntu",
+    "iso_url": "https://ubuntu.mirror.garr.it/ubuntu-releases/resolute/ubuntu-26.04-live-server-amd64.iso",
+    "help": "",
+    "os_family": "linux",
+    "os_flavour": "ubuntu",
+    "os_version": "26.04-resolute-server",
+    "libosinfo_id": "http://ubuntu.com/ubuntu/26.04"
+  },
+  {
+    "name": "OpenSUSE",
+    "iso_url": "https://opensuse.mirror.garr.it/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-GNOME-Live-x86_64-Current.iso",
+    "help": "",
+    "os_family": "linux",
+    "os_flavour": "opensuse",
+    "os_version": "tumbleweed-gnome",
+    "libosinfo_id": null
+  },
+  {
+    "name": "OpenSUSE",
+    "iso_url": "https://opensuse.mirror.garr.it/opensuse/distribution/openSUSE-current/iso/Leap-16.0-offline-installer-x86_64.install.iso",
+    "help": "",
+    "os_family": "linux",
+    "os_flavour": "opensuse",
+    "os_version": "leap-16.0",
+    "libosinfo_id": null
+  },
+  {
+    "name": "Gentoo",
+    "iso_url": "https://gentoo.mirror.garr.it/releases/x86/autobuilds/current-install-x86-minimal/install-x86-minimal-20260505T170108Z.iso",
+    "help": "",
+    "os_family": "linux",
+    "os_flavour": "gentoo",
+    "os_version": "current-minimal",
+    "libosinfo_id": null
+  }
+  {
     "name": "Pop!_OS",
     "iso_url": "https://iso.pop-os.org/22.04/amd64/intel/58/pop-os_22.04_amd64_intel_58.iso",
     "help": "",
@@ -244,11 +289,11 @@
   },
   {
     "name": "Debian",
-    "iso_url": "https://debian.mirror.garr.it/debian-cd/current/amd64/iso-cd/debian-13.4.0-amd64-netinst.iso",
+    "iso_url": "https://debian.mirror.garr.it/debian-cd/current/amd64/iso-cd/debian-13.5.0-amd64-netinst.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "debian",
-    "os_version": "13.4.0",
+    "os_version": "13.5.0",
     "libosinfo_id": "http://debian.org/debian/13"
   },
   {
