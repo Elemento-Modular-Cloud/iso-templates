@@ -8,12 +8,14 @@ on:
 jobs:
     verify_links:
         runs-on: ubuntu-latest
+        permissions:
+          contents: write
+          packages: write
         steps:
             - name: Checkout repo
               uses: actions/checkout@v5
               with:
-                  token: ${{ secrets.REPO_KEY }}
-                  submodules: recursive
+                  token: ${{ secrets.GITHUB_TOKEN }}
                   ref: main
 
             - name: Install dependencies
