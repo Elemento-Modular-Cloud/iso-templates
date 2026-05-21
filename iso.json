@@ -178,7 +178,7 @@
     "os_flavour": "gentoo",
     "os_version": "current-minimal",
     "libosinfo_id": null
-  }
+  },
   {
     "name": "Pop!_OS",
     "iso_url": "https://iso.pop-os.org/22.04/amd64/intel/58/pop-os_22.04_amd64_intel_58.iso",
