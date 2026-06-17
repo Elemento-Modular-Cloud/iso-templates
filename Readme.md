@@ -37,7 +37,7 @@ Repository with *.iso* images list for AtomOS
 | Ubuntu | 26.04-resolute-server | ✅ |
 | OpenSUSE | tumbleweed-gnome | ✅ |
 | OpenSUSE | leap-16.0 | ✅ |
-| Gentoo | current-minimal | ✅ |
+| Gentoo | current-minimal | ❌ |
 | Pop!_OS | 22.04 | ✅ |
 | Pop!_OS | 22.04-nvidia | ✅ |
 | Mint | lmde-7 | ✅ |
