@@ -28,6 +28,10 @@ jobs:
         with:
           python-version: "3.13"
 
+      - name: Install req
+        run: |
+          pip install -r requirements.txt
+
       - name: Check for new major update
         run: python3 scraper.py
 
