@@ -51,9 +51,9 @@ Repository with *.iso* images list for AtomOS
 | ArchLinux | latest | ✅ |
 | TempleOS | N/A | ✅ |
 | Debian | 13.5.0 | ✅ |
-| Fedora Workstation | 42-workstation | ✅ |
-| Fedora Silverblue | 42-silverblue | ✅ |
-| Fedora Server | 42-server | ✅ |
+| Fedora Workstation | 42-workstation | ❌ |
+| Fedora Silverblue | 42-silverblue | ❌ |
+| Fedora Server | 42-server | ❌ |
 | Fedora Workstation | 43-workstation | ✅ |
 | Fedora Silverblue | 43-silverblue | ✅ |
 | Fedora Server | 43-server | ✅ |
