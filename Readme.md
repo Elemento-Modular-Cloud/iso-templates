@@ -17,7 +17,9 @@ Repository with *.iso* images list for AtomOS
 <!--status-start-->
 | Name | Version | Status |
 |------|---------|--------|
-| Ubuntu | 25.04-server-cloud | ❌ |
+| Ubuntu | 24.04-server-cloud | ✅ |
+| Ubuntu | 25.10-server-cloud | ✅ |
+| Ubuntu | 26.04-server-cloud | ✅ |
 | WindowsXP | xp | NULL |
 | Windows7 | 7 | NULL |
 | Windows10 | 10 | NULL |
@@ -44,10 +46,10 @@ Repository with *.iso* images list for AtomOS
 | Mint | 22.2-cinnamon | ✅ |
 | Mint | 22.2-mate | ✅ |
 | Mint | 22.2-xfce | ✅ |
-| AlmaLinux | 9.latest-boot-x86_64 | ✅ |
-| AlmaLinux | 9.latest-minimal-x86_64 | ✅ |
-| AlmaLinux | 10.latest-boot-x86_64 | ✅ |
-| AlmaLinux | 10.latest-minimal-x86_64 | ✅ |
+| AlmaLinux | 9.8.latest-boot-x86_64 | ✅ |
+| AlmaLinux | 9.8.latest-minimal-x86_64 | ✅ |
+| AlmaLinux | 10.2.latest-boot-x86_64 | ✅ |
+| AlmaLinux | 10.2.latest-minimal-x86_64 | ✅ |
 | ArchLinux | latest | ✅ |
 | TempleOS | N/A | ✅ |
 | Debian | 13.5.0 | ✅ |
@@ -57,13 +59,22 @@ Repository with *.iso* images list for AtomOS
 | Fedora Workstation | 43-workstation | ✅ |
 | Fedora Silverblue | 43-silverblue | ✅ |
 | Fedora Server | 43-server | ✅ |
-| Rocky Linux | 9.latest-boot | ✅ |
-| Rocky Linux | 9.latest-minimal | ✅ |
-| Rocky Linux | 10.latest-boot | ✅ |
-| Rocky Linux | 10.latest-minimal | ✅ |
+| Rocky Linux | 9.8.latest-boot | ✅ |
+| Rocky Linux | 9.8.latest-minimal | ✅ |
+| Rocky Linux | 10.2.latest-boot | ✅ |
+| Rocky Linux | 10.2.latest-minimal | ✅ |
 | OpenBSD | 7.7 | ✅ |
 | OpenBSD | 7.8 | ✅ |
-| AlpineLinux | 3.23.0 | ✅ |
+| AlpineLinux | 3.23.5 | ✅ |
+| Mint | 22.3-cinnamon | ✅ |
+| Mint | 22.3-mate | ✅ |
+| Mint | 22.3-xfce | ✅ |
+| Fedora Workstation | 44-workstation | ✅ |
+| Fedora Silverblue | 44-silverblue | ✅ |
+| Fedora Server | 44-server | ✅ |
+| OpenBSD | 7.9 | ✅ |
+| AlpineLinux | 3.24.0 | ✅ |
 | Virtio | — | ❓ |
 | Virtio | — | ✅ |
+| Netboot.xyz | — | ✅ |
 <!--status-end-->

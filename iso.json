@@ -172,7 +172,7 @@
   },
   {
     "name": "Gentoo",
-    "iso_url": "https://gentoo.mirror.garr.it/releases/x86/autobuilds/current-install-x86-minimal/install-x86-minimal-20260630T151601Z.iso",
+    "iso_url": "https://gentoo.mirror.garr.it/releases/x86/autobuilds/current-install-x86-minimal/install-x86-minimal-20260707T170109Z.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "gentoo",
@@ -235,38 +235,38 @@
   },
   {
     "name": "AlmaLinux",
-    "iso_url": "https://almalinux.mirror.garr.it/9/isos/x86_64/AlmaLinux-9-latest-x86_64-boot.iso",
+    "iso_url": "https://almalinux.mirror.garr.it/9/isos/x86_64/AlmaLinux-9.8-x86_64-boot.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "almalinux",
-    "os_version": "9.latest-boot-x86_64",
-    "libosinfo_id": "http://almalinux.org/almalinux/9"
-  },
-  {
-    "name": "AlmaLinux",
-    "iso_url": "https://almalinux.mirror.garr.it/9/isos/x86_64/AlmaLinux-9-latest-x86_64-minimal.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "almalinux",
-    "os_version": "9.latest-minimal-x86_64",
-    "libosinfo_id": "http://almalinux.org/almalinux/9"
-  },
-  {
-    "name": "AlmaLinux",
-    "iso_url": "https://almalinux.mirror.garr.it/10/isos/x86_64/AlmaLinux-10-latest-x86_64-boot.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "almalinux",
-    "os_version": "10.latest-boot-x86_64",
+    "os_version": "9.8.latest-boot-x86_64",
     "libosinfo_id": "http://almalinux.org/almalinux/10"
   },
   {
     "name": "AlmaLinux",
-    "iso_url": "https://almalinux.mirror.garr.it/10/isos/x86_64/AlmaLinux-10-latest-x86_64-minimal.iso",
+    "iso_url": "https://almalinux.mirror.garr.it/9/isos/x86_64/AlmaLinux-9.8-x86_64-minimal.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "almalinux",
-    "os_version": "10.latest-minimal-x86_64",
+    "os_version": "9.8.latest-minimal-x86_64",
+    "libosinfo_id": "http://almalinux.org/almalinux/10"
+  },
+  {
+    "name": "AlmaLinux",
+    "iso_url": "https://almalinux.mirror.garr.it/10/isos/x86_64/AlmaLinux-10.2-x86_64-boot.iso",
+    "help": "",
+    "os_family": "linux",
+    "os_flavour": "almalinux",
+    "os_version": "10.2.latest-boot-x86_64",
+    "libosinfo_id": "http://almalinux.org/almalinux/10"
+  },
+  {
+    "name": "AlmaLinux",
+    "iso_url": "https://almalinux.mirror.garr.it/10/isos/x86_64/AlmaLinux-10.2-x86_64-minimal.iso",
+    "help": "",
+    "os_family": "linux",
+    "os_flavour": "almalinux",
+    "os_version": "10.2.latest-minimal-x86_64",
     "libosinfo_id": "http://almalinux.org/almalinux/10"
   },
   {
@@ -352,38 +352,38 @@
   },
   {
     "name": "Rocky Linux",
-    "iso_url": "https://rockylinux.mirror.garr.it/9/isos/x86_64/Rocky-9-latest-x86_64-boot.iso",
+    "iso_url": "https://rockylinux.mirror.garr.it/9/isos/x86_64/Rocky-9.8-x86_64-boot.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "rocky",
-    "os_version": "9.latest-boot",
-    "libosinfo_id": "http://rockylinux.org/rocky/9"
-  },
-  {
-    "name": "Rocky Linux",
-    "iso_url": "https://rockylinux.mirror.garr.it/9/isos/x86_64/Rocky-9-latest-x86_64-minimal.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "rocky",
-    "os_version": "9.latest-minimal",
-    "libosinfo_id": "http://rockylinux.org/rocky/9"
-  },
-  {
-    "name": "Rocky Linux",
-    "iso_url": "https://rockylinux.mirror.garr.it/10/isos/x86_64/Rocky-10-latest-x86_64-boot.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "rocky",
-    "os_version": "10.latest-boot",
+    "os_version": "9.8.latest-boot",
     "libosinfo_id": "http://rockylinux.org/rocky/10"
   },
   {
     "name": "Rocky Linux",
-    "iso_url": "https://rockylinux.mirror.garr.it/10/isos/x86_64/Rocky-10-latest-x86_64-minimal.iso",
+    "iso_url": "https://rockylinux.mirror.garr.it/9/isos/x86_64/Rocky-9.8-x86_64-minimal.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "rocky",
-    "os_version": "10.latest-minimal",
+    "os_version": "9.8.latest-minimal",
+    "libosinfo_id": "http://rockylinux.org/rocky/10"
+  },
+  {
+    "name": "Rocky Linux",
+    "iso_url": "https://rockylinux.mirror.garr.it/10/isos/x86_64/Rocky-10.2-x86_64-boot.iso",
+    "help": "",
+    "os_family": "linux",
+    "os_flavour": "rocky",
+    "os_version": "10.2.latest-boot",
+    "libosinfo_id": "http://rockylinux.org/rocky/10"
+  },
+  {
+    "name": "Rocky Linux",
+    "iso_url": "https://rockylinux.mirror.garr.it/10/isos/x86_64/Rocky-10.2-x86_64-minimal.iso",
+    "help": "",
+    "os_family": "linux",
+    "os_flavour": "rocky",
+    "os_version": "10.2.latest-minimal",
     "libosinfo_id": "http://rockylinux.org/rocky/10"
   },
   {
@@ -406,11 +406,83 @@
   },
   {
     "name": "AlpineLinux",
-    "iso_url": "https://alpinelinux.mirror.garr.it/v3.23/releases/x86_64/alpine-standard-3.23.0-x86_64.iso",
+    "iso_url": "https://alpinelinux.mirror.garr.it/v3.23/releases/x86_64/alpine-standard-3.23.5-x86_64.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "alpine",
-    "os_version": "3.23.0",
+    "os_version": "3.23.5",
     "libosinfo_id": "http://alpinelinux.org/alpinelinux/3.23"
+  },
+  {
+    "name": "Mint",
+    "iso_url": "https://linuxmint.mirror.garr.it/linuxmint/iso/stable/22.3/linuxmint-22.3-cinnamon-64bit.iso",
+    "help": "",
+    "os_family": "linux",
+    "os_flavour": "mint",
+    "os_version": "22.3-cinnamon",
+    "libosinfo_id": null
+  },
+  {
+    "name": "Mint",
+    "iso_url": "https://linuxmint.mirror.garr.it/linuxmint/iso/stable/22.3/linuxmint-22.3-mate-64bit.iso",
+    "help": "",
+    "os_family": "linux",
+    "os_flavour": "mint",
+    "os_version": "22.3-mate",
+    "libosinfo_id": null
+  },
+  {
+    "name": "Mint",
+    "iso_url": "https://linuxmint.mirror.garr.it/linuxmint/iso/stable/22.3/linuxmint-22.3-xfce-64bit.iso",
+    "help": "",
+    "os_family": "linux",
+    "os_flavour": "mint",
+    "os_version": "22.3-xfce",
+    "libosinfo_id": null
+  },
+  {
+    "name": "Fedora Workstation",
+    "iso_url": "https://fedora.mirror.garr.it/fedora/linux/releases/44/Workstation/x86_64/iso/Fedora-Workstation-Live-44-1.7.x86_64.iso",
+    "help": "https://getfedora.org/en/workstation/download/",
+    "os_family": "linux",
+    "os_flavour": "fedora",
+    "os_version": "44-workstation",
+    "libosinfo_id": "http://fedoraproject.org/fedora/44"
+  },
+  {
+    "name": "Fedora Silverblue",
+    "iso_url": "https://fedora.mirror.garr.it/fedora/linux/releases/44/Silverblue/x86_64/iso/Fedora-Silverblue-ostree-x86_64-44-1.7.iso",
+    "help": "https://getfedora.org/en/workstation/download/",
+    "os_family": "linux",
+    "os_flavour": "fedora",
+    "os_version": "44-silverblue",
+    "libosinfo_id": "http://fedoraproject.org/silverblue/44"
+  },
+  {
+    "name": "Fedora Server",
+    "iso_url": "https://fedora.mirror.garr.it/mirrors/fedora/linux/releases/44/Server/x86_64/iso/Fedora-Server-netinst-x86_64-44-1.7.iso",
+    "help": "https://getfedora.org/en/workstation/download/",
+    "os_family": "linux",
+    "os_flavour": "fedora",
+    "os_version": "44-server",
+    "libosinfo_id": "http://fedoraproject.org/fedora/44"
+  },
+  {
+    "name": "OpenBSD",
+    "iso_url": "http://openbsd.mirror.garr.it/pub/OpenBSD/7.9/amd64/install79.iso",
+    "help": "",
+    "os_family": "bsd",
+    "os_flavour": "openbsd",
+    "os_version": "7.9",
+    "libosinfo_id": null
+  },
+  {
+    "name": "AlpineLinux",
+    "iso_url": "https://alpinelinux.mirror.garr.it/v3.24/releases/x86_64/alpine-standard-3.24.1-x86_64.iso",
+    "help": "",
+    "os_family": "linux",
+    "os_flavour": "alpine",
+    "os_version": "3.24.0",
+    "libosinfo_id": "http://alpinelinux.org/alpinelinux/3.24"
   }
 ]
