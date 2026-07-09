@@ -74,6 +74,11 @@ Repository with *.iso* images list for AtomOS
 | Fedora Server | 44-server | ✅ |
 | OpenBSD | 7.9 | ✅ |
 | AlpineLinux | 3.24.0 | ✅ |
+| AlmaLinux | 10.8.latest-boot-x86_64 | ✅ |
+| AlmaLinux | 10.8.latest-minimal-x86_64 | ✅ |
+| Rocky Linux | 10.8.latest-boot | ✅ |
+| Rocky Linux | 10.8.latest-minimal | ✅ |
+| AlpineLinux | 3.24.5 | ✅ |
 | Virtio | — | ❓ |
 | Virtio | — | ✅ |
 | Netboot.xyz | — | ✅ |
