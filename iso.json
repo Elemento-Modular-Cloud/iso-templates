@@ -289,11 +289,11 @@
   },
   {
     "name": "Debian",
-    "iso_url": "https://debian.mirror.garr.it/debian-cd/current/amd64/iso-cd/debian-13.5.0-amd64-netinst.iso",
+    "iso_url": "https://debian.mirror.garr.it/debian-cd/current/amd64/iso-cd/debian-13.6.0-amd64-netinst.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "debian",
-    "os_version": "13.5.0",
+    "os_version": "13.6.0",
     "libosinfo_id": "http://debian.org/debian/13"
   },
   {
