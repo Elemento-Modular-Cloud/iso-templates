@@ -485,42 +485,7 @@
     "os_version": "3.24.0",
     "libosinfo_id": "http://alpinelinux.org/alpinelinux/3.24"
   },
-  {
-    "name": "AlmaLinux",
-    "iso_url": "https://almalinux.mirror.garr.it/10/isos/x86_64/AlmaLinux-10.2-x86_64-boot.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "almalinux",
-    "os_version": "10.8.latest-boot-x86_64",
-    "libosinfo_id": "http://almalinux.org/almalinux/10"
-  },
-  {
-    "name": "AlmaLinux",
-    "iso_url": "https://almalinux.mirror.garr.it/10/isos/x86_64/AlmaLinux-10.2-x86_64-minimal.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "almalinux",
-    "os_version": "10.8.latest-minimal-x86_64",
-    "libosinfo_id": "http://almalinux.org/almalinux/10"
-  },
-  {
-    "name": "Rocky Linux",
-    "iso_url": "https://rockylinux.mirror.garr.it/10/isos/x86_64/Rocky-10.2-x86_64-boot.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "rocky",
-    "os_version": "10.8.latest-boot",
-    "libosinfo_id": "http://rockylinux.org/rocky/10"
-  },
-  {
-    "name": "Rocky Linux",
-    "iso_url": "https://rockylinux.mirror.garr.it/10/isos/x86_64/Rocky-10.2-x86_64-minimal.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "rocky",
-    "os_version": "10.8.latest-minimal",
-    "libosinfo_id": "http://rockylinux.org/rocky/10"
-  },
+  
   {
     "name": "AlpineLinux",
     "iso_url": "https://alpinelinux.mirror.garr.it/v3.24/releases/x86_64/alpine-standard-3.24.1-x86_64.iso",
