@@ -224,7 +224,8 @@ def discover_new_entries(data):
     seen_signatures = set()
 
     def get_sig(e):
-        return f"{e.get('os_family')}-{e.get('os_flavour')}-{e.get('os_version')}"
+        # Includes iso_url to properly differentiate clones during initial discovery
+        return f"{e.get('os_family')}-{e.get('os_flavour')}-{e.get('os_version')}-{e.get('iso_url')}"
 
     for entry in data:
         sig = get_sig(entry)
@@ -242,25 +243,12 @@ def discover_new_entries(data):
         newer_versions = get_newer_major_versions(iso_url, flavour)
         for old_v, new_v, new_url in newer_versions:
             new_entry = copy.deepcopy(entry)
-            new_entry["iso_url"] = new_url
-
-            old_v_clean = old_v.lstrip("v")
-            new_v_clean = new_v.lstrip("v")
-
-            old_os_v = new_entry.get("os_version", "")
-            if old_v_clean in old_os_v:
-                new_entry["os_version"] = old_os_v.replace(old_v_clean, new_v_clean)
-            elif old_v in old_os_v:
-                new_entry["os_version"] = old_os_v.replace(old_v, new_v)
-
-            old_lib = new_entry.get("libosinfo_id", "")
-            if old_lib:
-                if old_v_clean in old_lib:
-                    new_entry["libosinfo_id"] = old_lib.replace(
-                        old_v_clean, new_v_clean
-                    )
-                elif old_v in old_lib:
-                    new_entry["libosinfo_id"] = old_lib.replace(old_v, new_v)
+            
+            # Save the untouched original file URL for correct diffing later
+            new_entry["_original_iso_url"] = iso_url 
+            
+            # Assign the new major directory path so scrape_latest_iso knows where to look
+            new_entry["iso_url"] = new_url 
 
             sig = get_sig(new_entry)
             if sig not in seen_signatures:
@@ -278,9 +266,16 @@ def patch_dynamic_string(old_url, new_url, target_str):
     old_matches = re.findall(r"\d+(?:\.\d+)+|\d+", old_url)
     new_matches = re.findall(r"\d+(?:\.\d+)+|\d+", new_url)
 
+    # Map the replacements
+    replacements = {}
     for old_val, new_val in zip(old_matches, new_matches):
-        if old_val != new_val and old_val in target_str:
-            target_str = target_str.replace(old_val, new_val)
+        if old_val != new_val:
+            replacements[old_val] = new_val
+
+    # Replace starting with the longest string to prevent partial overwrites (e.g., 9.8 vs 9)
+    for old_val in sorted(replacements.keys(), key=len, reverse=True):
+        if old_val in target_str:
+            target_str = target_str.replace(old_val, replacements[old_val])
 
     return target_str
 
@@ -415,6 +410,12 @@ def update_os_json(input_file, output_file):
             valid_data.append(entry)
             continue
 
+        # Extract the original file URL or default back to standard behavior
+        original_iso_url = entry.pop("_original_iso_url", iso_url)
+        
+        # Reset the object to its stable baseline 
+        entry["iso_url"] = original_iso_url
+
         name = entry.get("name", "Unknown")
         flavour = entry.get("os_flavour", "")
         version = entry.get("os_version", "")
@@ -427,12 +428,12 @@ def update_os_json(input_file, output_file):
         new_url = scrape_latest_iso(base_url, pattern)
 
         if new_url:
-            if new_url != iso_url:
+            if new_url != original_iso_url:
                 patched_version = patch_dynamic_string(
-                    iso_url, new_url, entry.get("os_version", "")
+                    original_iso_url, new_url, entry.get("os_version", "")
                 )
                 patched_libosinfo = patch_dynamic_string(
-                    iso_url, new_url, entry.get("libosinfo_id", "")
+                    original_iso_url, new_url, entry.get("libosinfo_id", "")
                 )
 
                 entry["os_version"] = patched_version
@@ -463,11 +464,20 @@ def update_os_json(input_file, output_file):
 
         valid_data.append(entry)
 
+    # FINAL PASS: Enforce Strict Deduplication
+    final_data = []
+    final_seen = set()
+
+    for d in valid_data:
+        unique_sig = f"{d.get('os_family')}-{d.get('os_flavour')}-{d.get('os_version')}"
+        if unique_sig not in final_seen:
+            final_seen.add(unique_sig)
+            final_data.append(d)
+
     with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(valid_data, f, indent=2)
+        json.dump(final_data, f, indent=2)
     print(f"\nUpdate complete. Data saved to {output_file}")
 
 
 if __name__ == "__main__":
     update_os_json("iso.json", "iso_updated.json")
-
