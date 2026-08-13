@@ -172,7 +172,7 @@
   },
   {
     "name": "Gentoo",
-    "iso_url": "https://gentoo.mirror.garr.it/releases/x86/autobuilds/current-install-x86-minimal/install-x86-minimal-20260804T163056Z.iso",
+    "iso_url": "https://gentoo.mirror.garr.it/releases/x86/autobuilds/current-install-x86-minimal/install-x86-minimal-20260811T164556Z.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "gentoo",
