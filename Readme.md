@@ -69,9 +69,9 @@ Repository with *.iso* images list for AtomOS
 | Mint | 22.3-cinnamon | ✅ |
 | Mint | 22.3-mate | ✅ |
 | Mint | 22.3-xfce | ✅ |
-| Fedora Workstation | 44-workstation | ❌ |
-| Fedora Silverblue | 44-silverblue | ❌ |
-| Fedora Server | 44-server | ❌ |
+| Fedora Workstation | 44-workstation | ✅ |
+| Fedora Silverblue | 44-silverblue | ✅ |
+| Fedora Server | 44-server | ✅ |
 | OpenBSD | 7.9 | ✅ |
 | AlpineLinux | 3.24.0 | ✅ |
 | AlpineLinux | 3.24.5 | ✅ |
