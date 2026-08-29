@@ -136,20 +136,20 @@
   },
   {
     "name": "Ubuntu",
-    "iso_url": "https://ubuntu.mirror.garr.it/ubuntu-releases/resolute/ubuntu-26.04-desktop-amd64.iso",
+    "iso_url": "https://ubuntu.mirror.garr.it/ubuntu-releases/resolute/ubuntu-26.04.1-desktop-amd64.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "ubuntu",
-    "os_version": "26.04-resolute-desktop",
+    "os_version": "26.04.1-resolute-desktop",
     "libosinfo_id": "http://ubuntu.com/ubuntu/26.04"
   },
   {
     "name": "Ubuntu",
-    "iso_url": "https://ubuntu.mirror.garr.it/ubuntu-releases/resolute/ubuntu-26.04-live-server-amd64.iso",
+    "iso_url": "https://ubuntu.mirror.garr.it/ubuntu-releases/resolute/ubuntu-26.04.1-live-server-amd64.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "ubuntu",
-    "os_version": "26.04-resolute-server",
+    "os_version": "26.04.1-resolute-server",
     "libosinfo_id": "http://ubuntu.com/ubuntu/26.04"
   },
   {
