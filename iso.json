@@ -100,7 +100,7 @@
   },
   {
     "name": "Ubuntu",
-    "iso_url": "https://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.5-desktop-amd64.iso",
+    "iso_url": "https://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.4-desktop-amd64.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "ubuntu",
@@ -289,11 +289,11 @@
   },
   {
     "name": "Debian",
-    "iso_url": "https://debian.mirror.garr.it/debian-cd/current/amd64/iso-cd/debian-13.6.0-amd64-netinst.iso",
+    "iso_url": "https://debian.mirror.garr.it/debian-cd/current/amd64/iso-cd/debian-13.7.0-amd64-netinst.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "debian",
-    "os_version": "13.6.0",
+    "os_version": "13.7.0",
     "libosinfo_id": "http://debian.org/debian/13"
   },
   {
