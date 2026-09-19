@@ -406,11 +406,11 @@
   },
   {
     "name": "AlpineLinux",
-    "iso_url": "https://alpinelinux.mirror.garr.it/v3.23/releases/x86_64/alpine-standard-3.23.5-x86_64.iso",
+    "iso_url": "https://alpinelinux.mirror.garr.it/v3.23/releases/x86_64/alpine-standard-3.23.6-x86_64.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "alpine",
-    "os_version": "3.23.5",
+    "os_version": "3.23.6",
     "libosinfo_id": "http://alpinelinux.org/alpinelinux/3.23"
   },
   {
@@ -478,7 +478,7 @@
   },
   {
     "name": "AlpineLinux",
-    "iso_url": "https://alpinelinux.mirror.garr.it/v3.24/releases/x86_64/alpine-standard-3.24.1-x86_64.iso",
+    "iso_url": "https://alpinelinux.mirror.garr.it/v3.24/releases/x86_64/alpine-standard-3.24.2-x86_64.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "alpine",
@@ -487,7 +487,7 @@
   },
   {
     "name": "AlpineLinux",
-    "iso_url": "https://alpinelinux.mirror.garr.it/v3.24/releases/x86_64/alpine-standard-3.24.1-x86_64.iso",
+    "iso_url": "https://alpinelinux.mirror.garr.it/v3.24/releases/x86_64/alpine-standard-3.24.2-x86_64.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "alpine",
@@ -496,11 +496,11 @@
   },
   {
     "name": "AlpineLinux",
-    "iso_url": "https://alpinelinux.mirror.garr.it/v3.24/releases/x86_64/alpine-standard-3.24.1-x86_64.iso",
+    "iso_url": "https://alpinelinux.mirror.garr.it/v3.24/releases/x86_64/alpine-standard-3.24.2-x86_64.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "alpine",
-    "os_version": "3.24.1",
+    "os_version": "3.24.2",
     "libosinfo_id": "http://alpinelinux.org/alpinelinux/3.24"
   }
 ]

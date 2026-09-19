@@ -65,7 +65,7 @@ Repository with *.iso* images list for AtomOS
 | Rocky Linux | 10.2.latest-minimal | ✅ |
 | OpenBSD | 7.7 | ❌ |
 | OpenBSD | 7.8 | ✅ |
-| AlpineLinux | 3.23.5 | ✅ |
+| AlpineLinux | 3.23.6 | ✅ |
 | Mint | 22.3-cinnamon | ✅ |
 | Mint | 22.3-mate | ✅ |
 | Mint | 22.3-xfce | ✅ |
@@ -75,7 +75,7 @@ Repository with *.iso* images list for AtomOS
 | OpenBSD | 7.9 | ✅ |
 | AlpineLinux | 3.24.0 | ✅ |
 | AlpineLinux | 3.24.5 | ✅ |
-| AlpineLinux | 3.24.1 | ✅ |
+| AlpineLinux | 3.24.2 | ✅ |
 | Virtio | — | ❓ |
 | Virtio | — | ✅ |
 | Netboot.xyz | — | ✅ |
