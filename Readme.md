@@ -20,19 +20,8 @@ Repository with *.iso* images list for AtomOS
 | Ubuntu | 24.04-server-cloud | ✅ |
 | Ubuntu | 25.10-server-cloud | ✅ |
 | Ubuntu | 26.04-server-cloud | ✅ |
-| WindowsXP | xp | NULL |
-| Windows7 | 7 | NULL |
-| Windows10 | 10 | NULL |
-| Windows11 | 11 | NULL |
-| WindowsServer2003 | srv2003 | NULL |
-| WindowsServer2008 | srv2008 | NULL |
-| WindowsServer2012 | srv2012 | NULL |
-| WindowsServer2016 | srv2016 | NULL |
-| WindowsServer2019 | srv2019 | NULL |
-| WindowsServer2022 | srv2022 | NULL |
-| WindowsServer2025 | srv2025 | NULL |
-| Ubuntu | 24.04-noble-desktop-LTS | ✅ |
-| Ubuntu | 24.04-noble-server-LTS | ✅ |
+| Ubuntu | 24.04.5.1-noble-desktop-LTS | ✅ |
+| Ubuntu | 24.04.5-noble-server-LTS | ✅ |
 | Ubuntu | 25.10-questing-desktop | ✅ |
 | Ubuntu | 25.10-questing-server | ✅ |
 | Ubuntu | 26.04.1-resolute-desktop | ✅ |
@@ -41,11 +30,13 @@ Repository with *.iso* images list for AtomOS
 | OpenSUSE | leap-16.0 | ✅ |
 | Gentoo | current-minimal | ✅ |
 | Pop!_OS | 22.04 | ✅ |
+| Pop!_OS | 24.04 | ✅ |
 | Pop!_OS | 22.04-nvidia | ✅ |
+| Pop!_OS | 24.04-nvidia | ✅ |
 | Mint | lmde-7 | ✅ |
-| Mint | 22.2-cinnamon | ✅ |
-| Mint | 22.2-mate | ✅ |
-| Mint | 22.2-xfce | ✅ |
+| Mint | 22.3-cinnamon | ✅ |
+| Mint | 22.3-mate | ✅ |
+| Mint | 22.3-xfce | ✅ |
 | AlmaLinux | 9.8.latest-boot-x86_64 | ✅ |
 | AlmaLinux | 9.8.latest-minimal-x86_64 | ✅ |
 | AlmaLinux | 10.2.latest-boot-x86_64 | ✅ |
@@ -53,9 +44,6 @@ Repository with *.iso* images list for AtomOS
 | ArchLinux | latest | ✅ |
 | TempleOS | N/A | ✅ |
 | Debian | 13.7.0 | ✅ |
-| Fedora Workstation | 42-workstation | ❌ |
-| Fedora Silverblue | 42-silverblue | ❌ |
-| Fedora Server | 42-server | ❌ |
 | Fedora Workstation | 43-workstation | ✅ |
 | Fedora Silverblue | 43-silverblue | ✅ |
 | Fedora Server | 43-server | ✅ |
@@ -63,20 +51,14 @@ Repository with *.iso* images list for AtomOS
 | Rocky Linux | 9.8.latest-minimal | ✅ |
 | Rocky Linux | 10.2.latest-boot | ✅ |
 | Rocky Linux | 10.2.latest-minimal | ✅ |
-| OpenBSD | 7.7 | ❌ |
 | OpenBSD | 7.8 | ✅ |
 | AlpineLinux | 3.23.6 | ✅ |
-| Mint | 22.3-cinnamon | ✅ |
-| Mint | 22.3-mate | ✅ |
-| Mint | 22.3-xfce | ✅ |
 | Fedora Workstation | 44-workstation | ✅ |
 | Fedora Silverblue | 44-silverblue | ✅ |
 | Fedora Server | 44-server | ✅ |
 | OpenBSD | 7.9 | ✅ |
-| AlpineLinux | 3.24.0 | ✅ |
-| AlpineLinux | 3.24.5 | ✅ |
 | AlpineLinux | 3.24.2 | ✅ |
-| Virtio | — | ❓ |
+| Virtio | — | ✅ |
 | Virtio | — | ✅ |
 | Netboot.xyz | — | ✅ |
 <!--status-end-->
