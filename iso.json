@@ -100,11 +100,11 @@
   },
   {
     "name": "Ubuntu",
-    "iso_url": "https://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.4-desktop-amd64.iso",
+    "iso_url": "https://ubuntu.mirror.garr.it/ubuntu-releases/noble/ubuntu-24.04.5.1-desktop-amd64.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "ubuntu",
-    "os_version": "24.04-noble-desktop-LTS",
+    "os_version": "24.04.5.1-noble-desktop-LTS",
     "libosinfo_id": "http://ubuntu.com/ubuntu/24.04"
   },
   {
@@ -113,7 +113,7 @@
     "help": "",
     "os_family": "linux",
     "os_flavour": "ubuntu",
-    "os_version": "24.04-noble-server-LTS",
+    "os_version": "24.04.5-noble-server-LTS",
     "libosinfo_id": "http://ubuntu.com/ubuntu/24.04"
   },
   {
@@ -172,7 +172,7 @@
   },
   {
     "name": "Gentoo",
-    "iso_url": "https://gentoo.mirror.garr.it/releases/x86/autobuilds/current-install-x86-minimal/install-x86-minimal-20261006T170059Z.iso",
+    "iso_url": "https://gentoo.mirror.garr.it/releases/amd64/autobuilds/current-install-amd64-minimal/install-amd64-minimal-20261011T170049Z.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "gentoo",
@@ -190,11 +190,29 @@
   },
   {
     "name": "Pop!_OS",
+    "iso_url": "https://iso.pop-os.org/24.04/amd64/intel/20/pop-os_24.04_amd64_intel_20.iso",
+    "help": "",
+    "os_family": "linux",
+    "os_flavour": "pop",
+    "os_version": "24.04",
+    "libosinfo_id": null
+  },
+  {
+    "name": "Pop!_OS",
     "iso_url": "https://iso.pop-os.org/22.04/amd64/nvidia/58/pop-os_22.04_amd64_nvidia_58.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "pop",
     "os_version": "22.04-nvidia",
+    "libosinfo_id": null
+  },
+  {
+    "name": "Pop!_OS",
+    "iso_url": "https://iso.pop-os.org/24.04/amd64/nvidia/28/pop-os_24.04_amd64_nvidia_28.iso",
+    "help": "",
+    "os_family": "linux",
+    "os_flavour": "pop",
+    "os_version": "24.04-nvidia",
     "libosinfo_id": null
   },
   {
@@ -208,29 +226,29 @@
   },
   {
     "name": "Mint",
-    "iso_url": "https://linuxmint.mirror.garr.it/linuxmint/iso/stable/22.2/linuxmint-22.2-cinnamon-64bit.iso",
+    "iso_url": "https://linuxmint.mirror.garr.it/linuxmint/iso/stable/22.3/linuxmint-22.3-cinnamon-64bit.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "mint",
-    "os_version": "22.2-cinnamon",
+    "os_version": "22.3-cinnamon",
     "libosinfo_id": null
   },
   {
     "name": "Mint",
-    "iso_url": "https://linuxmint.mirror.garr.it/linuxmint/iso/stable/22.2/linuxmint-22.2-mate-64bit.iso",
+    "iso_url": "https://linuxmint.mirror.garr.it/linuxmint/iso/stable/22.3/linuxmint-22.3-mate-64bit.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "mint",
-    "os_version": "22.2-mate",
+    "os_version": "22.3-mate",
     "libosinfo_id": null
   },
   {
     "name": "Mint",
-    "iso_url": "https://linuxmint.mirror.garr.it/linuxmint/iso/stable/22.2/linuxmint-22.2-xfce-64bit.iso",
+    "iso_url": "https://linuxmint.mirror.garr.it/linuxmint/iso/stable/22.3/linuxmint-22.3-xfce-64bit.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "mint",
-    "os_version": "22.2-xfce",
+    "os_version": "22.3-xfce",
     "libosinfo_id": null
   },
   {
@@ -240,7 +258,7 @@
     "os_family": "linux",
     "os_flavour": "almalinux",
     "os_version": "9.8.latest-boot-x86_64",
-    "libosinfo_id": "http://almalinux.org/almalinux/10"
+    "libosinfo_id": "http://almalinux.org/almalinux/9"
   },
   {
     "name": "AlmaLinux",
@@ -249,7 +267,7 @@
     "os_family": "linux",
     "os_flavour": "almalinux",
     "os_version": "9.8.latest-minimal-x86_64",
-    "libosinfo_id": "http://almalinux.org/almalinux/10"
+    "libosinfo_id": "http://almalinux.org/almalinux/9"
   },
   {
     "name": "AlmaLinux",
@@ -298,33 +316,6 @@
   },
   {
     "name": "Fedora Workstation",
-    "iso_url": "https://fedora.mirror.garr.it/fedora/linux/releases/42/Workstation/x86_64/iso/Fedora-Workstation-Live-42-1.1.x86_64.iso",
-    "help": "https://getfedora.org/en/workstation/download/",
-    "os_family": "linux",
-    "os_flavour": "fedora",
-    "os_version": "42-workstation",
-    "libosinfo_id": "http://fedoraproject.org/fedora/42"
-  },
-  {
-    "name": "Fedora Silverblue",
-    "iso_url": "https://fedora.mirror.garr.it/fedora/linux/releases/42/Silverblue/x86_64/iso/Fedora-Silverblue-ostree-x86_64-42-1.1.iso",
-    "help": "https://getfedora.org/en/workstation/download/",
-    "os_family": "linux",
-    "os_flavour": "fedora",
-    "os_version": "42-silverblue",
-    "libosinfo_id": "http://fedoraproject.org/silverblue/42"
-  },
-  {
-    "name": "Fedora Server",
-    "iso_url": "https://fedora.mirror.garr.it/mirrors/fedora/linux/releases/42/Server/x86_64/iso/Fedora-Server-netinst-x86_64-42-1.1.iso",
-    "help": "https://getfedora.org/en/workstation/download/",
-    "os_family": "linux",
-    "os_flavour": "fedora",
-    "os_version": "42-server",
-    "libosinfo_id": "http://fedoraproject.org/fedora/42"
-  },
-  {
-    "name": "Fedora Workstation",
     "iso_url": "https://fedora.mirror.garr.it/mirrors/fedora/linux/releases/43/Workstation/x86_64/iso/Fedora-Workstation-Live-43-1.6.x86_64.iso",
     "help": "https://getfedora.org/en/workstation/download/",
     "os_family": "linux",
@@ -357,7 +348,7 @@
     "os_family": "linux",
     "os_flavour": "rocky",
     "os_version": "9.8.latest-boot",
-    "libosinfo_id": "http://rockylinux.org/rocky/10"
+    "libosinfo_id": "http://rockylinux.org/rocky/9"
   },
   {
     "name": "Rocky Linux",
@@ -366,7 +357,7 @@
     "os_family": "linux",
     "os_flavour": "rocky",
     "os_version": "9.8.latest-minimal",
-    "libosinfo_id": "http://rockylinux.org/rocky/10"
+    "libosinfo_id": "http://rockylinux.org/rocky/9"
   },
   {
     "name": "Rocky Linux",
@@ -388,15 +379,6 @@
   },
   {
     "name": "OpenBSD",
-    "iso_url": "http://openbsd.mirror.garr.it/pub/OpenBSD/7.7/amd64/install77.iso",
-    "help": "",
-    "os_family": "bsd",
-    "os_flavour": "openbsd",
-    "os_version": "7.7",
-    "libosinfo_id": null
-  },
-  {
-    "name": "OpenBSD",
     "iso_url": "http://openbsd.mirror.garr.it/pub/OpenBSD/7.8/amd64/install78.iso",
     "help": "",
     "os_family": "bsd",
@@ -412,33 +394,6 @@
     "os_flavour": "alpine",
     "os_version": "3.23.6",
     "libosinfo_id": "http://alpinelinux.org/alpinelinux/3.23"
-  },
-  {
-    "name": "Mint",
-    "iso_url": "https://linuxmint.mirror.garr.it/linuxmint/iso/stable/22.3/linuxmint-22.3-cinnamon-64bit.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "mint",
-    "os_version": "22.3-cinnamon",
-    "libosinfo_id": null
-  },
-  {
-    "name": "Mint",
-    "iso_url": "https://linuxmint.mirror.garr.it/linuxmint/iso/stable/22.3/linuxmint-22.3-mate-64bit.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "mint",
-    "os_version": "22.3-mate",
-    "libosinfo_id": null
-  },
-  {
-    "name": "Mint",
-    "iso_url": "https://linuxmint.mirror.garr.it/linuxmint/iso/stable/22.3/linuxmint-22.3-xfce-64bit.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "mint",
-    "os_version": "22.3-xfce",
-    "libosinfo_id": null
   },
   {
     "name": "Fedora Workstation",
@@ -475,24 +430,6 @@
     "os_flavour": "openbsd",
     "os_version": "7.9",
     "libosinfo_id": null
-  },
-  {
-    "name": "AlpineLinux",
-    "iso_url": "https://alpinelinux.mirror.garr.it/v3.24/releases/x86_64/alpine-standard-3.24.2-x86_64.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "alpine",
-    "os_version": "3.24.0",
-    "libosinfo_id": "http://alpinelinux.org/alpinelinux/3.24"
-  },
-  {
-    "name": "AlpineLinux",
-    "iso_url": "https://alpinelinux.mirror.garr.it/v3.24/releases/x86_64/alpine-standard-3.24.2-x86_64.iso",
-    "help": "",
-    "os_family": "linux",
-    "os_flavour": "alpine",
-    "os_version": "3.24.5",
-    "libosinfo_id": "http://alpinelinux.org/alpinelinux/3.24"
   },
   {
     "name": "AlpineLinux",

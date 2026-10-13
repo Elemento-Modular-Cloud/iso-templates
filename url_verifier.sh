@@ -1,4 +1,5 @@
 #!/bin/bash
+set -uo pipefail
 
 usage() {
   echo "Usage:"
@@ -6,64 +7,66 @@ usage() {
   exit 1
 }
 
-# Parse headers and output JSON object
-parse_headers() {
+CURL_OPTS=(-s -L --max-time 60 --retry 2 --retry-delay 5)
+
+# Headers of the final response after redirects
+final_headers() {
+  tr -d '\r' | awk '/^HTTP\// { block = "" } { block = block $0 "\n" } END { printf "%s", block }'
+}
+
+# Check a URL and print its report as a JSON object
+check_url() {
   local name="$1"
   local url="$2"
   local os_version="$3"
-  local headers
-  headers=$(curl -s -I "$url")
+  local headers status
 
-  local status_code=$(echo "$headers" | grep -m 1 "HTTP/" | awk '{print $2}')
-  local content_length=$(echo "$headers" | grep -i "Content-Length" | awk '{print $2}' | tr -d '\r')
-  local content_type=$(echo "$headers" | grep -i "Content-Type" | awk '{print $2}' | tr -d '\r')
-  local content_disp=$(echo "$headers" | grep -i "Content-Disposition" | cut -d':' -f2- | xargs | tr -d '\000-\037' | sed 's/"/\\"/g')
+  headers=$(curl "${CURL_OPTS[@]}" -I "$url" | final_headers)
+  status=$(echo "$headers" | awk 'NR == 1 { print $2 }')
 
-  echo "  {"
-  echo "    \"name\": \"${name}\","
-  echo "    \"url\": \"${url}\","
-  if [ -n "$os_version" ]; then
-    echo "    \"os_version\": \"${os_version}\","
+  # Some servers reject HEAD: retry with a one-byte GET
+  if [[ "$status" =~ ^(403|405|501)$ ]]; then
+    headers=$(curl "${CURL_OPTS[@]}" -r 0-0 -o /dev/null -D - "$url" | final_headers)
+    status=$(echo "$headers" | awk 'NR == 1 { print $2 }')
+    [ "$status" == "206" ] && status=200
   fi
-  echo "    \"status\": ${status_code:-0},"
-  echo "    \"valid\": $( [ "$status_code" == "200" ] && echo true || echo false ),"
-  echo "    \"content_length\": \"${content_length:-unknown}\","
-  echo "    \"content_type\": \"${content_type:-unknown}\","
-  echo "    \"content_disposition\": \"${content_disp:-none}\""
-  echo "  }"
+
+  header() { echo "$headers" | grep -i -m 1 "^$1:" | cut -d':' -f2- | tr -d '\000-\037' | sed 's/^ *//;s/ *$//'; }
+
+  jq -n \
+    --arg name "$name" \
+    --arg url "$url" \
+    --arg os_version "$os_version" \
+    --argjson status "${status:-0}" \
+    --arg content_length "$(header Content-Length)" \
+    --arg content_type "$(header Content-Type)" \
+    --arg content_disposition "$(header Content-Disposition)" \
+    '{
+      name: $name,
+      url: $url,
+      status: $status,
+      valid: ($status == 200),
+      content_length: (if $content_length == "" then "unknown" else $content_length end),
+      content_type: (if $content_type == "" then "unknown" else $content_type end),
+      content_disposition: (if $content_disposition == "" then "none" else $content_disposition end)
+    } + (if $os_version == "" then {} else {os_version: $os_version} end)'
 }
 
-if [ $# -ne 2 ]; then
+if [ $# -ne 2 ] || [ "$1" != "--file" ]; then
   usage
 fi
 
-case "$1" in
-  --file)
-    JSON_FILE="$2"
-    if [ ! -f "$JSON_FILE" ]; then
-      echo "Error: File not found: $JSON_FILE"
-      exit 1
-    fi
+JSON_FILE="$2"
+if [ ! -f "$JSON_FILE" ]; then
+  echo "Error: File not found: $JSON_FILE" >&2
+  exit 1
+fi
 
-    echo "["
-    first=1
-    jq -c '.[]?' "$JSON_FILE" | while read -r entry; do
-      name=$(echo "$entry" | jq -r '.name')
-      url=$(echo "$entry" | jq -r '.iso_url')
-      os_version=$(echo "$entry" | jq -r '.os_version // empty')
-
-      [ -z "$url" ] && continue
-
-      if [ $first -eq 0 ]; then
-        echo ","
-      fi
-      parse_headers "$name" "$url" "$os_version"
-      first=0
-    done
-    echo ""
-    echo "]"
-    ;;
-  *)
-    usage
-    ;;
-esac
+# Entries without a URL (e.g. Windows) have nothing to check
+jq -c '.[] | select(.iso_url != null and .iso_url != "")' "$JSON_FILE" |
+  while read -r entry; do
+    name=$(jq -r '.name' <<< "$entry")
+    url=$(jq -r '.iso_url' <<< "$entry")
+    os_version=$(jq -r '.os_version // empty' <<< "$entry")
+    check_url "$name" "$url" "$os_version"
+  done | jq -s '.'

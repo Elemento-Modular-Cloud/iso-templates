@@ -5,12 +5,15 @@ on:
   schedule:
     - cron: "0 13 */2 * *" # every 2 days at 13
 
+concurrency:
+  group: verify-links
+  cancel-in-progress: false
+
 jobs:
   verify_links:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      packages: write
     steps:
       - name: Checkout repo
         uses: actions/checkout@v5
@@ -21,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y wget curl
+          sudo apt-get install -y curl jq
 
       - name: Setup python
         uses: actions/setup-python@v6
@@ -32,13 +35,15 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Check for new major update
+      - name: Update iso.json from the mirrors
         run: python3 scraper.py
 
-      - name: Substitute file
+      - name: Validate and substitute file
         run: |
-          rm iso.json
+          # Refuse to replace iso.json with something that isn't a non-empty JSON list
+          jq -e 'type == "array" and length > 0' iso_updated.json > /dev/null
           mv iso_updated.json iso.json
+          git diff --stat -- iso.json
 
       - name: Create report for iso file
         run: ./url_verifier.sh --file iso.json > report_iso.json
@@ -76,31 +81,36 @@ jobs:
           echo "|------|---------|--------|" >> table.md
 
           for report in report_*.json; do
-            # Use perl to remove control characters safely
-            perl -pe 's/[\x00-\x1F]//g' "$report" | jq -r '
+            jq -r '
               .[] |
               "| \(.name) | " +
-              (if has("os_version") then .os_version else "—" end) +
+              (.os_version // "—") +
               " | " +
-              (if (.status | type == "number") then
-                  if .status >= 200 and .status < 300 then "✅"
-                  elif .status >= 300 and .status < 400 then "❓"
-                  elif .status >= 400 then "❌"
-                  else "NULL"  # status like 0 or unrecognized numeric codes
-                  end
-              else "❓" end) +
+              (if .status >= 200 and .status < 300 then "✅"
+               elif .status >= 300 and .status < 400 then "❓"
+               elif .status >= 400 then "❌"
+               else "NULL"  # curl could not connect
+               end) +
               " |"
-            ' >> table.md
+            ' "$report" >> table.md
           done
 
           # Replace section in README.md
           awk '/<!--status-start-->/{print;system("cat table.md");next} /<!--status-end-->/{print;next} 1' dummy.md > Readme.new.md
           mv Readme.new.md Readme.md
 
-      - name: Commit and push if README changed
+      - name: Commit and push changes
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add Readme.md iso.json
-          git diff --cached --quiet || git commit -m "Update README with link status report"
+          if git diff --cached --quiet; then
+            echo "Nothing changed"
+            exit 0
+          fi
+          if git diff --cached --quiet -- iso.json; then
+            git commit -m "Update README with link status report"
+          else
+            git commit -m "Update iso.json from mirrors and README link status"
+          fi
           git push origin main

@@ -1,390 +1,482 @@
+"""Keeps iso.json pointed at the latest ISO of every major release line.
+
+Every entry in iso.json is one major release line of a distro variant
+(e.g. AlmaLinux 9 minimal). On each run, for every variant:
+
+  * existing lines are moved to the newest minor release on the mirror
+    (AlmaLinux 9.7 -> 9.8), with os_version and libosinfo_id kept in sync;
+  * a major release newer than the newest one in iso.json gets a new entry,
+    cloned from the newest existing one (AlmaLinux 10 appears -> new entry);
+  * a line whose ISO is gone from the mirror is dropped, but only when a
+    newer line exists, so a variant is never removed entirely;
+  * several entries for the same line are collapsed into one.
+
+Rolling distros (Arch, Gentoo, Tumbleweed, ...) have a single line whose URL
+is refreshed. Windows entries and entries without an iso_url are untouched.
+"""
+
+import copy
 import json
 import os
 import re
-from urllib.parse import urljoin
-import copy
+from datetime import date
+from urllib.parse import unquote, urljoin
+
 import requests
 from bs4 import BeautifulSoup
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
+
+TIMEOUT = 15
+OSINFO_RAW_URL = "https://gitlab.com/libosinfo/osinfo-db/-/raw/main/data/os/{vendor}/{name}.xml.in"
+POP_API_URL = "https://api.pop-os.org/builds/{version}/{channel}"
+
+# The leading version in os_version, e.g. "9.8" in "9.8.latest-boot-x86_64"
+VERSION_TOKEN = re.compile(r"\d+(?:\.\d+)*")
+
+session = requests.Session()
+session.headers["User-Agent"] = "elemento-iso-templates-scraper (+https://github.com/Elemento-Modular-Cloud)"
+_retry = Retry(total=3, backoff_factor=2, status_forcelist=[429, 500, 502, 503, 504])
+session.mount("http://", HTTPAdapter(max_retries=_retry))
+session.mount("https://", HTTPAdapter(max_retries=_retry))
 
 
-def natural_sort_key(s):
-    """Sorts strings logically (e.g. 22.3 comes after 22.2, 10 comes after 9)"""
-    return [
-        int(text) if text.isdigit() else text.lower() for text in re.split(r"(\d+)", s)
-    ]
+def version_key(version):
+    """Numeric sort key: "22.10" > "22.9", "24.04.5.1" > "24.04.5"."""
+    return tuple(int(x) for x in re.findall(r"\d+", version or ""))
 
 
-def get_regex_pattern(flavour, version):
-    """Returns a specialized regex pattern based on the OS flavour and version."""
-    flavour = flavour.lower()
-    version = version.lower()
+def leading(n):
+    """Major-line extractor keeping the first n numeric components ("9.8" -> "9" for n=1)."""
+    return lambda version: ".".join(re.findall(r"\d+", version)[:n])
+
+
+# ---------------------------------------------------------------------------
+# Sources
+#
+# Every (os_flavour, kind) pair maps to how its ISOs are laid out on the mirror:
+#   file    regex matched against file names; the optional "version" group is the
+#           full release version (otherwise the release directory name is used)
+#   major   function mapping a version to its major line; None for rolling distros
+#   layout  regex splitting the entry URL into the mirror root and a per-release
+#           directory ("dir" group); None when all releases live in one directory
+#   dirs    regex selecting release directories in the root listing
+#   subdir  path of the ISO directory below the root, formatted with {dir}
+#   codename  the release directory is the codename (Ubuntu) and appears in os_version
+#   api     "pop": releases come from the Pop!_OS build API instead of a listing
+# ---------------------------------------------------------------------------
+
+
+def _per_release_dirs(layout, dirs, subdir, file, major, **extra):
+    return dict(layout=layout, dirs=dirs, subdir=subdir, file=file, major=major, **extra)
+
+
+def _flat(file, major=None):
+    return dict(layout=None, file=file, major=major)
+
+
+def _rhel_like(prefix, kind):
+    return _per_release_dirs(
+        layout=r"^(?P<root>.*/)(?P<dir>\d+)/isos/x86_64/[^/]+$",
+        dirs=r"^\d+$",
+        subdir="{dir}/isos/x86_64/",
+        file=rf"^{prefix}-(?P<version>\d+\.\d+)-x86_64-{kind}\.iso$",
+        major=leading(1),
+    )
+
+
+def _fedora(edition, file):
+    return _per_release_dirs(
+        layout=rf"^(?P<root>.*/releases/)(?P<dir>\d+)/{edition}/x86_64/iso/[^/]+$",
+        dirs=r"^\d+$",
+        subdir=f"{{dir}}/{edition}/x86_64/iso/",
+        file=file,
+        major=leading(1),
+    )
+
+
+def _ubuntu(kind):
+    return _per_release_dirs(
+        layout=r"^(?P<root>.*/)(?P<dir>[a-z]+)/[^/]+$",
+        dirs=r"^[a-z]+$",
+        subdir="{dir}/",
+        file=rf"^ubuntu-(?P<version>\d+\.\d+(?:\.\d+)*)-{kind}-amd64\.iso$",
+        major=leading(2),
+        codename=True,
+    )
+
+
+def _mint(edition):
+    return _per_release_dirs(
+        layout=r"^(?P<root>.*/stable/)(?P<dir>\d+(?:\.\d+)?)/[^/]+$",
+        dirs=r"^\d+(?:\.\d+)?$",
+        subdir="{dir}/",
+        file=rf"^linuxmint-(?P<version>\d+(?:\.\d+)?)-{edition}-64bit\.iso$",
+        major=leading(1),
+    )
+
+
+SOURCES = {
+    ("ubuntu", "desktop"): _ubuntu("desktop"),
+    ("ubuntu", "server"): _ubuntu("live-server"),
+    ("almalinux", "boot"): _rhel_like("AlmaLinux", "boot"),
+    ("almalinux", "minimal"): _rhel_like("AlmaLinux", "minimal"),
+    ("rocky", "boot"): _rhel_like("Rocky", "boot"),
+    ("rocky", "minimal"): _rhel_like("Rocky", "minimal"),
+    ("fedora", "workstation"): _fedora(
+        "Workstation", r"^Fedora-Workstation-Live-(?P<version>\d+)-[\d.]+\.x86_64\.iso$"
+    ),
+    ("fedora", "silverblue"): _fedora(
+        "Silverblue", r"^Fedora-Silverblue-ostree-x86_64-(?P<version>\d+)-[\d.]+\.iso$"
+    ),
+    ("fedora", "server"): _fedora(
+        "Server", r"^Fedora-Server-netinst-x86_64-(?P<version>\d+)-[\d.]+\.iso$"
+    ),
+    ("mint", "cinnamon"): _mint("cinnamon"),
+    ("mint", "mate"): _mint("mate"),
+    ("mint", "xfce"): _mint("xfce"),
+    ("mint", "lmde"): _flat(r"^lmde-(?P<version>\d+)-cinnamon-64bit\.iso$", leading(1)),
+    # OpenBSD has no point releases: every release (7.8, 7.9, ...) is its own line.
+    # The mirror only keeps supported releases, so old lines retire on their own.
+    ("openbsd", ""): _per_release_dirs(
+        layout=r"^(?P<root>.*/OpenBSD/)(?P<dir>\d+\.\d+)/amd64/[^/]+$",
+        dirs=r"^\d+\.\d+$",
+        subdir="{dir}/amd64/",
+        file=r"^install\d+\.iso$",
+        major=leading(2),
+    ),
+    # Alpine release branches (v3.23, v3.24) are the lines, x.y.Z the minor updates.
+    ("alpine", ""): _per_release_dirs(
+        layout=r"^(?P<root>.*/)(?P<dir>v\d+\.\d+)/releases/x86_64/[^/]+$",
+        dirs=r"^v\d+\.\d+$",
+        subdir="{dir}/releases/x86_64/",
+        file=r"^alpine-standard-(?P<version>\d+\.\d+\.\d+)-x86_64\.iso$",
+        major=leading(2),
+    ),
+    # debian-cd/current/ and openSUSE-current/ only hold the current release: a new
+    # major replaces the old one there, which adds the new line and retires the old.
+    ("debian", ""): _flat(r"^debian-(?P<version>\d+\.\d+\.\d+)-amd64-netinst\.iso$", leading(1)),
+    ("opensuse", "leap"): _flat(
+        r"^Leap-(?P<version>\d+\.\d+)-offline-installer-x86_64\.install\.iso$", leading(1)
+    ),
+    ("opensuse", "tumbleweed-gnome"): _flat(r"^openSUSE-Tumbleweed-GNOME-Live-x86_64-Current\.iso$"),
+    ("opensuse", "tumbleweed"): _flat(r"^openSUSE-Tumbleweed-DVD-x86_64-Current\.iso$"),
+    ("pop", "intel"): dict(api="pop", file=r"^pop-os_(?P<version>\d+\.\d+)_amd64_intel_\d+\.iso$", major=leading(2)),
+    ("pop", "nvidia"): dict(api="pop", file=r"^pop-os_(?P<version>\d+\.\d+)_amd64_nvidia_\d+\.iso$", major=leading(2)),
+    ("gentoo", ""): _flat(r"^install-amd64-minimal-(?P<version>\d+T\d+Z)\.iso$"),
+    ("arch", ""): _flat(r"^archlinux-x86_64\.iso$"),
+    ("temple", ""): _flat(r"^TempleOS\.ISO$"),
+    ("void", "base"): _flat(r"^void-live-x86_64-(?P<version>\d+)-base\.iso$"),
+    ("void", "xfce"): _flat(r"^void-live-x86_64-(?P<version>\d+)-xfce\.iso$"),
+    ("void", "gnome"): _flat(r"^void-live-x86_64-(?P<version>\d+)-gnome\.iso$"),
+    ("void", "cinnamon"): _flat(r"^void-live-x86_64-(?P<version>\d+)-cinnamon\.iso$"),
+}
+
+
+def get_kind(entry):
+    """Returns the variant of an entry, i.e. the second half of its SOURCES key."""
+    flavour = entry.get("os_flavour", "").lower()
+    version = entry.get("os_version", "").lower()
+
+    def first_of(*kinds, default=""):
+        return next((k for k in kinds if k in version), default)
 
     if flavour == "ubuntu":
-        if "desktop" in version:
-            return r"ubuntu-\d+\.\d+(?:\.\d+)?-desktop-amd64\.iso$"
-        return r"ubuntu-\d+\.\d+(?:\.\d+)?-(?:live-)?server-amd64\.(iso|img)$"
-    elif flavour == "opensuse":
+        return first_of("desktop", default="server")
+    if flavour in ("almalinux", "rocky"):
+        return first_of("boot", default="minimal")
+    if flavour == "fedora":
+        return first_of("workstation", "silverblue", "server")
+    if flavour == "mint":
+        return first_of("lmde", "cinnamon", "mate", "xfce")
+    if flavour == "opensuse":
         if "tumbleweed" in version:
-            if "gnome" in version:
-                return r"openSUSE-Tumbleweed-GNOME-Live-x86_64-Current\.iso$"
-            return r"openSUSE-Tumbleweed-.*-Current\.iso$"
-        return r"Leap-\d+\.\d+-offline-installer-.*\.iso$"
-    elif flavour == "gentoo":
-        return r"install-x86-minimal-\d+T\d+Z\.iso$"
-    elif flavour == "pop":
-        return r"pop-os_.*\.iso$"
-    elif flavour == "mint":
-        if "lmde" in version:
-            return r"lmde-\d+-.*-64bit\.iso$"
-        elif "cinnamon" in version:
-            return r"linuxmint-\d+(?:\.\d+)?-cinnamon-64bit\.iso$"
-        elif "mate" in version:
-            return r"linuxmint-\d+(?:\.\d+)?-mate-64bit\.iso$"
-        elif "xfce" in version:
-            return r"linuxmint-\d+(?:\.\d+)?-xfce-64bit\.iso$"
-    elif flavour == "void":
-        if "xfce" in version:
-            return r"void-live-x86_64-\d+-xfce\.iso$"
-        elif "gnome" in version:
-            return r"void-live-x86_64-\d+-gnome\.iso$"
-        elif "cinnamon" in version:
-            return r"void-live-x86_64-\d+-cinnamon\.iso$"
-        else:
-            return r"void-live-x86_64-\d+-base\.iso$"
-    elif flavour == "almalinux":
-        if "boot" in version:
-            return r"AlmaLinux-\d+(?:\.\d+)+-x86_64-boot\.iso$"
-        return r"AlmaLinux-\d+(?:\.\d+)+-x86_64-minimal\.iso$"
-    elif flavour == "arch":
-        return r"archlinux-x86_64\.iso$"
-    elif flavour == "temple":
-        return r"TempleOS\.ISO$"
-    elif flavour == "debian":
-        return r"debian-\d+\.\d+\.\d+-amd64-netinst\.iso$"
-    elif flavour == "fedora":
-        if "workstation" in version:
-            return r"Fedora-Workstation-Live-\d+-.*\.iso$"
-        elif "silverblue" in version:
-            return r"Fedora-Silverblue-ostree-x86_64-\d+-.*\.iso$"
-        elif "server" in version:
-            return r"Fedora-Server-netinst-x86_64-\d+-.*\.iso$"
-    elif flavour == "rocky":
-        if "boot" in version:
-            return r"Rocky-\d+(?:\.\d+)+-x86_64-boot\.iso$"
-        return r"Rocky-\d+(?:\.\d+)+-x86_64-minimal\.iso$"
-    elif flavour == "openbsd":
-        return r"install\d+\.iso$"
-    elif flavour == "alpine":
-        return r"alpine-standard-\d+\.\d+\.\d+-x86_64\.iso$"
-
-    return r".*\.(iso|img)$"
+            return "tumbleweed-gnome" if "gnome" in version else "tumbleweed"
+        return "leap"
+    if flavour == "pop":
+        return first_of("nvidia", default="intel")
+    if flavour == "void":
+        return first_of("xfce", "gnome", "cinnamon", default="base")
+    return ""
 
 
-def get_newer_major_versions(url, flavour):
-    """Climbs the directory tree to discover if newer major version folders have been added."""
-    flavour = flavour.lower()
-    newer_versions = []
+# ---------------------------------------------------------------------------
+# Network helpers
+# ---------------------------------------------------------------------------
+
+_listing_cache = {}
+_osinfo_cache = {}
+
+
+def list_dir(url):
+    """Returns the entry names of a mirror directory listing (directories end with "/"),
+    or None if it can't be read. Results are cached for the whole run."""
+    if url not in _listing_cache:
+        try:
+            resp = session.get(url, timeout=TIMEOUT)
+            resp.raise_for_status()
+            soup = BeautifulSoup(resp.text, "html.parser")
+            names = []
+            for a in soup.find_all("a", href=True):
+                href = a["href"].split("?")[0].split("#")[0]
+                if href.startswith("./"):
+                    href = href[2:]
+                if not href or href.startswith(("/", "..")) or "://" in href:
+                    continue
+                names.append(unquote(href))
+            _listing_cache[url] = names
+        except requests.RequestException as e:
+            print(f"    ! cannot list {url}: {e}")
+            _listing_cache[url] = None
+    return _listing_cache[url]
+
+
+def url_ok(url):
+    """True if the URL answers 200 (following redirects). Falls back to a one-byte
+    GET for servers that reject HEAD."""
     try:
-        if flavour == "fedora":
-            match = re.search(r"/releases/(\d+)/", url)
-            if match:
-                current_ver = match.group(1)
-                parent_dir = url.split(f"/releases/{current_ver}/")[0] + "/releases/"
-                resp = requests.get(parent_dir, timeout=10)
-                if resp.status_code == 200:
-                    soup = BeautifulSoup(resp.text, "html.parser")
-                    links = [
-                        a["href"].strip("/") for a in soup.find_all("a", href=True)
-                    ]
-                    for l in links:
-                        if l.isdigit() and int(l) > int(current_ver):
-                            new_url = url.replace(
-                                f"/releases/{current_ver}/", f"/releases/{l}/"
-                            )
-                            newer_versions.append((current_ver, l, new_url))
-
-        elif flavour in ["almalinux", "rocky"]:
-            match = re.search(r"/(\d+)/isos/", url)
-            if match:
-                current_ver = match.group(1)
-                parent_dir = url.split(f"/{current_ver}/isos/")[0] + "/"
-                resp = requests.get(parent_dir, timeout=10)
-                if resp.status_code == 200:
-                    soup = BeautifulSoup(resp.text, "html.parser")
-                    links = [
-                        a["href"].strip("/") for a in soup.find_all("a", href=True)
-                    ]
-                    for l in links:
-                        if l.isdigit() and int(l) > int(current_ver):
-                            new_url = url.replace(
-                                f"/{current_ver}/isos/", f"/{l}/isos/"
-                            )
-                            newer_versions.append((current_ver, l, new_url))
-
-        elif flavour == "alpine":
-            match = re.search(r"/(v\d+\.\d+)/", url)
-            if match:
-                current_ver = match.group(1)
-                parent_dir = url.split(f"/{current_ver}/")[0] + "/"
-                resp = requests.get(parent_dir, timeout=10)
-                if resp.status_code == 200:
-                    soup = BeautifulSoup(resp.text, "html.parser")
-                    links = [
-                        a["href"].strip("/") for a in soup.find_all("a", href=True)
-                    ]
-                    for l in links:
-                        if re.match(r"^v\d+\.\d+$", l):
-                            curr_parts = [int(x) for x in current_ver[1:].split(".")]
-                            l_parts = [int(x) for x in l[1:].split(".")]
-                            if l_parts > curr_parts:
-                                new_url = url.replace(f"/{current_ver}/", f"/{l}/")
-                                newer_versions.append((current_ver, l, new_url))
-
-        elif flavour == "mint":
-            match = re.search(r"/stable/(\d+(?:\.\d+)?)/", url)
-            if match:
-                current_ver = match.group(1)
-                parent_dir = url.split(f"/stable/{current_ver}/")[0] + "/stable/"
-                resp = requests.get(parent_dir, timeout=10)
-                if resp.status_code == 200:
-                    soup = BeautifulSoup(resp.text, "html.parser")
-                    links = [
-                        a["href"].strip("/") for a in soup.find_all("a", href=True)
-                    ]
-                    for l in links:
-                        if re.match(r"^\d+(\.\d+)?$", l):
-                            if float(l) > float(current_ver):
-                                new_url = url.replace(
-                                    f"/stable/{current_ver}/", f"/stable/{l}/"
-                                )
-                                newer_versions.append((current_ver, l, new_url))
-
-        elif flavour == "openbsd":
-            match = re.search(r"/OpenBSD/(\d+\.\d+)/", url)
-            if match:
-                current_ver = match.group(1)
-                parent_dir = url.split(f"/{current_ver}/")[0] + "/"
-                resp = requests.get(parent_dir, timeout=10)
-                if resp.status_code == 200:
-                    soup = BeautifulSoup(resp.text, "html.parser")
-                    links = [
-                        a["href"].strip("/") for a in soup.find_all("a", href=True)
-                    ]
-                    for l in links:
-                        if re.match(r"^\d+\.\d+$", l):
-                            if float(l) > float(current_ver):
-                                new_url = url.replace(f"/{current_ver}/", f"/{l}/")
-                                newer_versions.append((current_ver, l, new_url))
-
-        elif flavour == "pop":
-            match = re.search(r"/(\d+\.\d+)/amd64/", url)
-            if match:
-                current_ver = match.group(1)
-                parent_dir = url.split(f"/{current_ver}/amd64/")[0] + "/"
-                resp = requests.get(parent_dir, timeout=10)
-                if resp.status_code == 200:
-                    soup = BeautifulSoup(resp.text, "html.parser")
-                    links = [
-                        a["href"].strip("/") for a in soup.find_all("a", href=True)
-                    ]
-                    for l in links:
-                        if re.match(r"^\d+\.\d+$", l):
-                            if float(l) > float(current_ver):
-                                new_url = url.replace(f"/{current_ver}/", f"/{l}/")
-                                newer_versions.append((current_ver, l, new_url))
-
-        elif flavour == "debian":
-            # If the user uses a numbered release rather than /current/
-            match = re.search(r"/debian-cd/(\d+\.\d+\.\d+)/", url)
-            if match:
-                current_ver = match.group(1)
-                parent_dir = url.split(f"/{current_ver}/")[0] + "/"
-                resp = requests.get(parent_dir, timeout=10)
-                if resp.status_code == 200:
-                    soup = BeautifulSoup(resp.text, "html.parser")
-                    links = [
-                        a["href"].strip("/") for a in soup.find_all("a", href=True)
-                    ]
-                    for l in links:
-                        if re.match(r"^\d+\.\d+\.\d+$", l):
-                            curr_parts = [int(x) for x in current_ver.split(".")]
-                            l_parts = [int(x) for x in l.split(".")]
-                            if l_parts > curr_parts:
-                                new_url = url.replace(f"/{current_ver}/", f"/{l}/")
-                                newer_versions.append((current_ver, l, new_url))
-
-    except Exception:
-        pass
-    return newer_versions
+        resp = session.head(url, allow_redirects=True, timeout=TIMEOUT)
+        if resp.status_code in (403, 405, 501):
+            resp = session.get(url, headers={"Range": "bytes=0-0"}, stream=True, allow_redirects=True, timeout=TIMEOUT)
+            resp.close()
+            return resp.status_code in (200, 206)
+        return resp.status_code == 200
+    except requests.RequestException as e:
+        print(f"    ! cannot reach {url}: {e}")
+        return False
 
 
-def discover_new_entries(data):
-    """Clones JSON entries for newly discovered major versions so they co-exist automatically."""
-    new_data = []
-    seen_signatures = set()
+def libosinfo_exists(os_id):
+    """True/False if the libosinfo id is/isn't in osinfo-db, None if osinfo-db can't be reached."""
+    if os_id not in _osinfo_cache:
+        clean_id = re.sub(r"^https?://", "", os_id)
+        vendor, _, path = clean_id.partition("/")
+        url = OSINFO_RAW_URL.format(vendor=vendor, name=path.replace("/", "-"))
+        try:
+            resp = session.head(url, allow_redirects=True, timeout=TIMEOUT)
+            _osinfo_cache[os_id] = {200: True, 404: False}.get(resp.status_code)
+        except requests.RequestException:
+            _osinfo_cache[os_id] = None
+    return _osinfo_cache[os_id]
 
-    def get_sig(e):
-        # Includes iso_url to properly differentiate clones during initial discovery
-        return f"{e.get('os_family')}-{e.get('os_flavour')}-{e.get('os_version')}-{e.get('iso_url')}"
 
-    for entry in data:
-        sig = get_sig(entry)
-        if sig not in seen_signatures:
-            seen_signatures.add(sig)
-            new_data.append(entry)
+# ---------------------------------------------------------------------------
+# Release discovery
+# ---------------------------------------------------------------------------
 
-    discovered = []
-    for entry in data:
-        iso_url = entry.get("iso_url")
-        flavour = entry.get("os_flavour", "")
-        if not iso_url or entry.get("os_family") == "windows":
+
+def major_of(source, version):
+    return source["major"](version) if source["major"] else ""
+
+
+def parse_entry_url(source, url):
+    """Returns (version, release_dir) of the ISO an entry points at, or None when the
+    URL doesn't follow the source layout."""
+    name = url.rsplit("/", 1)[-1]
+    file_match = re.match(source["file"], name)
+    if not file_match:
+        return None
+    release_dir = None
+    if source.get("layout"):
+        layout_match = re.match(source["layout"], url)
+        if not layout_match:
+            return None
+        release_dir = layout_match["dir"]
+    version = file_match.groupdict().get("version") or release_dir or ""
+    return version, release_dir
+
+
+def find_pop_releases(source, sample_url, min_major):
+    """Asks the Pop!_OS build API for every YY.04/YY.10 release from min_major to today."""
+    channel = re.search(r"_amd64_(\w+?)_\d+\.iso$", sample_url)[1]
+    releases = {}
+    first_year = int(min_major.split(".")[0])
+    for year in range(first_year, date.today().year % 100 + 1):
+        for month in ("04", "10"):
+            version = f"{year}.{month}"
+            if version_key(version) < version_key(min_major):
+                continue
+            try:
+                resp = session.get(POP_API_URL.format(version=version, channel=channel), timeout=TIMEOUT)
+            except requests.RequestException as e:
+                print(f"    ! cannot reach the Pop!_OS API: {e}")
+                return None
+            if resp.status_code == 404:
+                continue
+            if not resp.ok:
+                print(f"    ! Pop!_OS API answered {resp.status_code} for {version}")
+                return None
+            build = resp.json()
+            releases[version] = {"version": version, "url": build["url"], "codename": None}
+    return releases
+
+
+def find_releases(source, sample_url, min_major):
+    """Returns {major: newest release} for every major line >= min_major available on
+    the mirror, or None if the mirror couldn't be read."""
+    if source.get("api") == "pop":
+        return find_pop_releases(source, sample_url, min_major)
+
+    if source.get("layout"):
+        root = re.match(source["layout"], sample_url)["root"]
+        names = list_dir(root)
+        if names is None:
+            return None
+        candidates = []
+        for name in names:
+            release_dir = name.rstrip("/")
+            if not name.endswith("/") or not re.match(source["dirs"], release_dir):
+                continue
+            dir_major = major_of(source, release_dir)
+            # Release directories without a version in their name (Ubuntu codenames) are always checked
+            if dir_major and version_key(dir_major) < version_key(min_major):
+                continue
+            candidates.append((release_dir, urljoin(root, source["subdir"].format(dir=release_dir))))
+    else:
+        candidates = [(None, sample_url.rsplit("/", 1)[0] + "/")]
+
+    releases = {}
+    for release_dir, dir_url in candidates:
+        names = list_dir(dir_url)
+        if names is None:
+            if not source.get("layout"):
+                return None
+            continue
+        for name in names:
+            file_match = re.match(source["file"], name)
+            if not file_match:
+                continue
+            version = file_match.groupdict().get("version") or release_dir or ""
+            major = major_of(source, version)
+            if major and version_key(major) < version_key(min_major):
+                continue
+            best = releases.get(major)
+            if best is None or version_key(version) > version_key(best["version"]):
+                releases[major] = {
+                    "version": version,
+                    "url": urljoin(dir_url, name),
+                    "codename": release_dir if source.get("codename") else None,
+                }
+    return releases
+
+
+# ---------------------------------------------------------------------------
+# Entry updates
+# ---------------------------------------------------------------------------
+
+
+def sync_libosinfo(entry, major):
+    """Points a versioned libosinfo id (".../almalinux/9") at the entry's major line,
+    keeping the current id while osinfo-db doesn't know the new one yet."""
+    current = entry.get("libosinfo_id")
+    if not current or not major or "/" not in current:
+        return
+    base, last = current.rsplit("/", 1)
+    if not re.match(r"^\d", last) or last == major:
+        return
+    candidate = f"{base}/{major}"
+    exists = libosinfo_exists(candidate)
+    if exists:
+        entry["libosinfo_id"] = candidate
+        print(f"    libosinfo_id -> {candidate}")
+    elif exists is False:
+        print(f"    libosinfo_id {candidate} not in osinfo-db yet, keeping {current}")
+
+
+def is_ubuntu_lts(major):
+    year, month = (int(x) for x in major.split("."))
+    return year % 2 == 0 and month == 4
+
+
+def apply_release(entry, source, release, major, old_codename, new_line=False):
+    """Points an entry at a release. Returns False (entry untouched) if the new URL doesn't answer."""
+    # Same file reachable through another path of the mirror: keep the entry's URL
+    same_file = release["url"].rsplit("/", 1)[-1] == entry["iso_url"].rsplit("/", 1)[-1]
+    if not same_file:
+        if not url_ok(release["url"]):
+            print(f"    ! {release['url']} does not answer, not updating")
+            return False
+        entry["iso_url"] = release["url"]
+        print(f"    iso_url -> {release['url']}")
+
+    if source["major"]:
+        os_version = VERSION_TOKEN.sub(release["version"], entry["os_version"], count=1)
+        new_codename = release["codename"]
+        if old_codename and new_codename and old_codename != new_codename:
+            os_version = os_version.replace(old_codename, new_codename)
+        if new_line and entry.get("os_flavour", "").lower() == "ubuntu":
+            os_version = re.sub(r"-LTS$", "", os_version)
+            if is_ubuntu_lts(major):
+                os_version += "-LTS"
+        if os_version != entry["os_version"]:
+            print(f"    os_version -> {os_version}")
+            entry["os_version"] = os_version
+        sync_libosinfo(entry, major)
+    return True
+
+
+def update_group(key, entries):
+    """Updates the entries of one variant in place.
+    Returns (entries to remove, new entries to append after the group)."""
+    source = SOURCES[key]
+    managed = []
+    for entry in entries:
+        parsed = parse_entry_url(source, entry["iso_url"])
+        if parsed is None:
+            print(f"  ! {entry['name']} ({entry['os_version']}): URL doesn't match the {key} layout, left untouched")
+            continue
+        version, release_dir = parsed
+        managed.append((entry, major_of(source, version), release_dir))
+    if not managed:
+        return [], []
+
+    min_major = min((major for _, major, _ in managed), key=version_key)
+    releases = find_releases(source, managed[0][0]["iso_url"], min_major)
+    if releases is None:
+        print("  ! mirror unreachable, keeping entries as they are")
+        return [], []
+    if not releases:
+        print("  ! no matching ISO on the mirror, keeping entries as they are")
+        return [], []
+    newest_major = max(releases, key=version_key)
+
+    removed, seen_majors = [], set()
+    for entry, major, release_dir in managed:
+        label = f"{entry['name']} ({entry['os_version']})"
+        if major in seen_majors:
+            print(f"  - {label}: duplicate of major line {major}, removed")
+            removed.append(entry)
+            continue
+        seen_majors.add(major)
+
+        release = releases.get(major)
+        if release is None:
+            if version_key(major) < version_key(newest_major) and not url_ok(entry["iso_url"]):
+                print(f"  - {label}: gone from the mirror and superseded by {newest_major}, removed")
+                removed.append(entry)
+            else:
+                print(f"  ! {label}: not found on the mirror, kept")
             continue
 
-        newer_versions = get_newer_major_versions(iso_url, flavour)
-        for old_v, new_v, new_url in newer_versions:
-            new_entry = copy.deepcopy(entry)
-            
-            # Save the untouched original file URL for correct diffing later
-            new_entry["_original_iso_url"] = iso_url 
-            
-            # Assign the new major directory path so scrape_latest_iso knows where to look
-            new_entry["iso_url"] = new_url 
+        print(f"  * {label}")
+        apply_release(entry, source, release, major, release_dir)
 
-            sig = get_sig(new_entry)
-            if sig not in seen_signatures:
-                seen_signatures.add(sig)
-                discovered.append(new_entry)
-
-    return new_data + discovered
-
-
-def patch_dynamic_string(old_url, new_url, target_str):
-    """Dynamically patches minor point-release version numbers in metadata strings."""
-    if not target_str:
-        return target_str
-
-    old_matches = re.findall(r"\d+(?:\.\d+)+|\d+", old_url)
-    new_matches = re.findall(r"\d+(?:\.\d+)+|\d+", new_url)
-
-    # Map the replacements
-    replacements = {}
-    for old_val, new_val in zip(old_matches, new_matches):
-        if old_val != new_val:
-            replacements[old_val] = new_val
-
-    # Replace starting with the longest string to prevent partial overwrites (e.g., 9.8 vs 9)
-    for old_val in sorted(replacements.keys(), key=len, reverse=True):
-        if old_val in target_str:
-            target_str = target_str.replace(old_val, replacements[old_val])
-
-    return target_str
-
-
-def verify_libosinfo_id(os_id):
-    """Checks the libosinfo-db GitLab repository to see if the URN ID actually exists."""
-    if not os_id:
-        return False
-
-    try:
-        clean_id = os_id.replace("http://", "").replace("https://", "")
-        parts = clean_id.split("/", 1)
-        if len(parts) != 2:
-            return False
-
-        vendor = parts[0]
-        filename_base = parts[1].replace("/", "-")
-        gitlab_raw_url = f"https://gitlab.com/libosinfo/osinfo-db/-/raw/main/data/os/{vendor}/{filename_base}.xml.in"
-
-        response = requests.head(gitlab_raw_url, timeout=5)
-        return response.status_code == 200
-    except Exception:
-        return False
-
-
-def get_latest_libosinfo_id(current_id):
-    """Queries GitLab API to fallback to the highest existing libosinfo tag and aggressively filters non-production codenames."""
-    if not current_id:
-        return current_id
-
-    try:
-        clean_id = current_id.replace("http://", "").replace("https://", "")
-        parts = clean_id.split("/")
-        vendor = parts[0]
-
-        product_path = "-".join(parts[1:-1])
-        if not product_path:
-            product_path = parts[1]
-
-        current_version_str = parts[-1]
-
-        api_url = f"https://gitlab.com/api/v4/projects/libosinfo%2Fosinfo-db/repository/tree?path=data/os/{vendor}&per_page=100"
-
-        files = []
-        page = 1
-        while True:
-            resp = requests.get(f"{api_url}&page={page}", timeout=10)
-            if resp.status_code != 200:
-                break
-            data = resp.json()
-            if not data:
-                break
-            files.extend(data)
-            page += 1
-
-        valid_files = []
-        for f in files:
-            name = f["name"]
-            if name.startswith(product_path + "-") and name.endswith(".xml.in"):
-                version_str = name[len(product_path) + 1 : -7]
-
-                if re.match(r"^\d", current_version_str):
-                    if not re.match(r"^\d", version_str):
-                        continue
-                    if "kitten" in version_str.lower():
-                        continue
-                    if "rawhide" in version_str.lower():
-                        continue
-
-                valid_files.append(name)
-
-        if not valid_files:
-            return current_id
-
-        valid_files.sort(key=natural_sort_key)
-        latest_file = valid_files[-1]
-
-        prefix_len = len(product_path) + 1
-        version_str = latest_file[prefix_len:-7]
-
-        original_base = current_id.rsplit("/", 1)[0]
-        return f"{original_base}/{version_str}"
-
-    except Exception:
-        return current_id
-
-
-def scrape_latest_iso(base_url, pattern):
-    """Scrapes the base_url directory and finds the newest file matching the regex."""
-    try:
-        response = requests.get(base_url, timeout=10)
-        if response.status_code != 200:
-            return None
-
-        soup = BeautifulSoup(response.text, "html.parser")
-        links = [a["href"] for a in soup.find_all("a", href=True)]
-
-        regex = re.compile(pattern, re.IGNORECASE)
-        matching_isos = [l for l in links if regex.search(l)]
-
-        if not matching_isos:
-            return None
-
-        matching_isos.sort(key=natural_sort_key)
-        latest_iso = matching_isos[-1]
-
-        return urljoin(base_url, latest_iso)
-    except Exception:
-        return None
+    # New major lines are cloned from the newest surviving one
+    removed_ids = {id(e) for e in removed}
+    survivors = [m for m in managed if id(m[0]) not in removed_ids]
+    if not survivors:
+        return removed, []
+    template, template_major, _ = max(survivors, key=lambda m: version_key(m[1]))
+    template_codename = parse_entry_url(source, template["iso_url"])[1]
+    added = []
+    for major in sorted(releases, key=version_key):
+        if version_key(major) <= version_key(template_major):
+            continue
+        new_entry = copy.deepcopy(template)
+        print(f"  + new major line {major} (from {template['os_version']})")
+        if apply_release(new_entry, source, releases[major], major, template_codename, new_line=True):
+            added.append(new_entry)
+    return removed, added
 
 
 def update_os_json(input_file, output_file):
@@ -395,88 +487,50 @@ def update_os_json(input_file, output_file):
     with open(input_file, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    print("Scanning mirrors for new major non-rolling versions...")
-    extended_data = discover_new_entries(data)
-
-    valid_data = []
-
-    for entry in extended_data:
-        if entry.get("os_family") == "windows":
-            valid_data.append(entry)
+    groups = {}
+    for entry in data:
+        if entry.get("os_family") == "windows" or not entry.get("iso_url"):
             continue
-
-        iso_url = entry.get("iso_url")
-        if not iso_url:
-            valid_data.append(entry)
+        key = (entry.get("os_flavour", "").lower(), get_kind(entry))
+        if key not in SOURCES:
+            print(f"! {entry.get('name')} ({entry.get('os_version')}): no source for {key}, left untouched")
             continue
+        groups.setdefault(key, []).append(entry)
 
-        # Extract the original file URL or default back to standard behavior
-        original_iso_url = entry.pop("_original_iso_url", iso_url)
-        
-        # Reset the object to its stable baseline 
-        entry["iso_url"] = original_iso_url
+    removed_ids = set()
+    added_after = {}
+    for key, entries in groups.items():
+        print(f"Checking {key[0]} {key[1]}".rstrip() + "...")
+        removed, added = update_group(key, entries)
+        removed_ids.update(id(e) for e in removed)
+        survivors = [e for e in entries if id(e) not in removed_ids]
+        if added:
+            anchor = survivors[-1] if survivors else entries[-1]
+            added_after.setdefault(id(anchor), []).extend(added)
 
-        name = entry.get("name", "Unknown")
-        flavour = entry.get("os_flavour", "")
-        version = entry.get("os_version", "")
+    result = []
+    for entry in data:
+        if id(entry) not in removed_ids:
+            result.append(entry)
+        result.extend(added_after.get(id(entry), []))
 
-        print(f"Checking {name} ({version})...")
-
-        base_url = iso_url.rsplit("/", 1)[0] + "/"
-        pattern = get_regex_pattern(flavour, version)
-
-        new_url = scrape_latest_iso(base_url, pattern)
-
-        if new_url:
-            if new_url != original_iso_url:
-                patched_version = patch_dynamic_string(
-                    original_iso_url, new_url, entry.get("os_version", "")
-                )
-                patched_libosinfo = patch_dynamic_string(
-                    original_iso_url, new_url, entry.get("libosinfo_id", "")
-                )
-
-                entry["os_version"] = patched_version
-                entry["iso_url"] = new_url
-
-                print(f"  ✅ UPDATED: {new_url}")
-                print(f"     -> Version set to: {patched_version}")
-
-                old_libosinfo = entry.get("libosinfo_id")
-                if patched_libosinfo and patched_libosinfo != old_libosinfo:
-                    if verify_libosinfo_id(patched_libosinfo):
-                        entry["libosinfo_id"] = patched_libosinfo
-                        print(
-                            f"     -> libosinfo synced & VERIFIED: {patched_libosinfo}"
-                        )
-                    else:
-                        latest_db_id = get_latest_libosinfo_id(old_libosinfo)
-                        entry["libosinfo_id"] = latest_db_id
-                        print(
-                            f"     -> libosinfo tag pending upstream. Using latest DB match: {latest_db_id}"
-                        )
-            else:
-                print("  ✓ Already up to date.")
-        else:
-            print(
-                "  ❌ Unresponsive or missing file. Keeping old entry without updating."
-            )
-
-        valid_data.append(entry)
-
-    # FINAL PASS: Enforce Strict Deduplication
-    final_data = []
-    final_seen = set()
-
-    for d in valid_data:
-        unique_sig = f"{d.get('os_family')}-{d.get('os_flavour')}-{d.get('os_version')}"
-        if unique_sig not in final_seen:
-            final_seen.add(unique_sig)
-            final_data.append(d)
+    # Safety net: never ship two entries with the same ISO or the same version label
+    final_data, seen_urls, seen_sigs = [], set(), set()
+    for entry in result:
+        url = entry.get("iso_url")
+        sig = (entry.get("os_family"), entry.get("os_flavour"), entry.get("os_version"))
+        if (url and url in seen_urls) or sig in seen_sigs:
+            print(f"! dropping duplicate {entry.get('name')} ({entry.get('os_version')})")
+            continue
+        if url:
+            seen_urls.add(url)
+        seen_sigs.add(sig)
+        final_data.append(entry)
 
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(final_data, f, indent=2)
-    print(f"\nUpdate complete. Data saved to {output_file}")
+        f.write("\n")
+    print(f"\nUpdate complete: {len(data)} -> {len(final_data)} entries. Data saved to {output_file}")
 
 
 if __name__ == "__main__":
