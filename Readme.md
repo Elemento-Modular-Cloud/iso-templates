@@ -57,6 +57,7 @@ Repository with *.iso* images list for AtomOS
 | Fedora Silverblue | 44-silverblue | ✅ |
 | Fedora Server | 44-server | ✅ |
 | OpenBSD | 7.9 | ✅ |
+| OpenBSD | 8.0 | ✅ |
 | AlpineLinux | 3.24.2 | ✅ |
 | Virtio | — | ✅ |
 | Virtio | — | ✅ |

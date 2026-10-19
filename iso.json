@@ -172,7 +172,7 @@
   },
   {
     "name": "Gentoo",
-    "iso_url": "https://gentoo.mirror.garr.it/releases/amd64/autobuilds/current-install-amd64-minimal/install-amd64-minimal-20261011T170049Z.iso",
+    "iso_url": "https://gentoo.mirror.garr.it/releases/amd64/autobuilds/current-install-amd64-minimal/install-amd64-minimal-20261018T124555Z.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "gentoo",
@@ -429,6 +429,15 @@
     "os_family": "bsd",
     "os_flavour": "openbsd",
     "os_version": "7.9",
+    "libosinfo_id": null
+  },
+  {
+    "name": "OpenBSD",
+    "iso_url": "http://openbsd.mirror.garr.it/pub/OpenBSD/8.0/amd64/install80.iso",
+    "help": "",
+    "os_family": "bsd",
+    "os_flavour": "openbsd",
+    "os_version": "8.0",
     "libosinfo_id": null
   },
   {
