@@ -25,7 +25,9 @@ Repository with *.iso* images list for AtomOS
 | Ubuntu | 25.10-questing-desktop | ✅ |
 | Ubuntu | 25.10-questing-server | ✅ |
 | Ubuntu | 26.04.1-resolute-desktop | ✅ |
+| Ubuntu | 26.10-stonking-desktop | ✅ |
 | Ubuntu | 26.04.1-resolute-server | ✅ |
+| Ubuntu | 26.10-stonking-server | ✅ |
 | OpenSUSE | tumbleweed-gnome | ✅ |
 | OpenSUSE | leap-16.0 | ✅ |
 | Gentoo | current-minimal | ✅ |
