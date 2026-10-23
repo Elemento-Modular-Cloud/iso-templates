@@ -54,14 +54,14 @@ Repository with *.iso* images list for AtomOS
 | Rocky Linux | 10.2.latest-boot | ✅ |
 | Rocky Linux | 10.2.latest-minimal | ✅ |
 | OpenBSD | 7.8 | ✅ |
-| AlpineLinux | 3.23.6 | ✅ |
+| AlpineLinux | 3.23.7 | ✅ |
 | Fedora Workstation | 44-workstation | ✅ |
 | Fedora Silverblue | 44-silverblue | ✅ |
 | Fedora Server | 44-server | ✅ |
 | OpenBSD | 7.9 | ✅ |
 | OpenBSD | 8.0 | ✅ |
-| AlpineLinux | 3.24.2 | ✅ |
-| Virtio | — | ✅ |
+| AlpineLinux | 3.24.3 | ✅ |
+| Virtio | — | NULL |
 | Virtio | — | ✅ |
 | Netboot.xyz | — | ✅ |
 <!--status-end-->
