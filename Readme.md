@@ -61,7 +61,7 @@ Repository with *.iso* images list for AtomOS
 | OpenBSD | 7.9 | ✅ |
 | OpenBSD | 8.0 | ✅ |
 | AlpineLinux | 3.24.3 | ✅ |
-| Virtio | — | NULL |
+| Virtio | — | ✅ |
 | Virtio | — | ✅ |
 | Netboot.xyz | — | ✅ |
 <!--status-end-->
