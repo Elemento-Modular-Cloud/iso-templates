@@ -190,7 +190,7 @@
   },
   {
     "name": "Gentoo",
-    "iso_url": "https://gentoo.mirror.garr.it/releases/amd64/autobuilds/current-install-amd64-minimal/install-amd64-minimal-20261018T124555Z.iso",
+    "iso_url": "https://gentoo.mirror.garr.it/releases/amd64/autobuilds/current-install-amd64-minimal/install-amd64-minimal-20261025T170057Z.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "gentoo",
@@ -231,6 +231,15 @@
     "os_family": "linux",
     "os_flavour": "pop",
     "os_version": "24.04-nvidia",
+    "libosinfo_id": null
+  },
+  {
+    "name": "Pop!_OS",
+    "iso_url": "https://iso.pop-os.org/26.04/amd64/nvidia/1/pop-os_26.04_amd64_nvidia_1.iso",
+    "help": "",
+    "os_family": "linux",
+    "os_flavour": "pop",
+    "os_version": "26.04-nvidia",
     "libosinfo_id": null
   },
   {

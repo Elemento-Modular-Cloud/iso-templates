@@ -35,6 +35,7 @@ Repository with *.iso* images list for AtomOS
 | Pop!_OS | 24.04 | ✅ |
 | Pop!_OS | 22.04-nvidia | ✅ |
 | Pop!_OS | 24.04-nvidia | ✅ |
+| Pop!_OS | 26.04-nvidia | ✅ |
 | Mint | lmde-7 | ✅ |
 | Mint | 22.3-cinnamon | ✅ |
 | Mint | 22.3-mate | ✅ |
