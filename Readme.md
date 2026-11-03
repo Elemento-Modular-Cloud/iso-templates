@@ -29,7 +29,7 @@ Repository with *.iso* images list for AtomOS
 | Ubuntu | 26.04.1-resolute-server | ✅ |
 | Ubuntu | 26.10-stonking-server | ✅ |
 | OpenSUSE | tumbleweed-gnome | ✅ |
-| OpenSUSE | leap-16.0 | ✅ |
+| OpenSUSE | leap-16.1 | ✅ |
 | Gentoo | current-minimal | ✅ |
 | Pop!_OS | 22.04 | ✅ |
 | Pop!_OS | 24.04 | ✅ |

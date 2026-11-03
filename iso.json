@@ -181,16 +181,16 @@
   },
   {
     "name": "OpenSUSE",
-    "iso_url": "https://opensuse.mirror.garr.it/opensuse/distribution/openSUSE-current/iso/Leap-16.0-offline-installer-x86_64.install.iso",
+    "iso_url": "https://opensuse.mirror.garr.it/opensuse/distribution/openSUSE-current/iso/Leap-16.1-offline-installer-x86_64.install.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "opensuse",
-    "os_version": "leap-16.0",
+    "os_version": "leap-16.1",
     "libosinfo_id": null
   },
   {
     "name": "Gentoo",
-    "iso_url": "https://gentoo.mirror.garr.it/releases/amd64/autobuilds/current-install-amd64-minimal/install-amd64-minimal-20261025T170057Z.iso",
+    "iso_url": "https://gentoo.mirror.garr.it/releases/amd64/autobuilds/current-install-amd64-minimal/install-amd64-minimal-20261101T164556Z.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "gentoo",
