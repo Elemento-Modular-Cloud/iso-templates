@@ -415,11 +415,11 @@
   },
   {
     "name": "AlpineLinux",
-    "iso_url": "https://alpinelinux.mirror.garr.it/v3.23/releases/x86_64/alpine-standard-3.23.7-x86_64.iso",
+    "iso_url": "https://alpinelinux.mirror.garr.it/v3.23/releases/x86_64/alpine-standard-3.23.8-x86_64.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "alpine",
-    "os_version": "3.23.7",
+    "os_version": "3.23.8",
     "libosinfo_id": "http://alpinelinux.org/alpinelinux/3.23"
   },
   {
@@ -429,6 +429,15 @@
     "os_family": "linux",
     "os_flavour": "fedora",
     "os_version": "44-workstation",
+    "libosinfo_id": "http://fedoraproject.org/fedora/44"
+  },
+  {
+    "name": "Fedora Workstation",
+    "iso_url": "https://fedora.mirror.garr.it/mirrors/fedora/linux/releases/45/Workstation/x86_64/iso/Fedora-Workstation-Live-45-1.4.x86_64.iso",
+    "help": "https://getfedora.org/en/workstation/download/",
+    "os_family": "linux",
+    "os_flavour": "fedora",
+    "os_version": "45-workstation",
     "libosinfo_id": "http://fedoraproject.org/fedora/44"
   },
   {
@@ -447,6 +456,15 @@
     "os_family": "linux",
     "os_flavour": "fedora",
     "os_version": "44-server",
+    "libosinfo_id": "http://fedoraproject.org/fedora/44"
+  },
+  {
+    "name": "Fedora Server",
+    "iso_url": "https://fedora.mirror.garr.it/mirrors/fedora/linux/releases/45/Server/x86_64/iso/Fedora-Server-netinst-x86_64-45-1.4.iso",
+    "help": "https://getfedora.org/en/workstation/download/",
+    "os_family": "linux",
+    "os_flavour": "fedora",
+    "os_version": "45-server",
     "libosinfo_id": "http://fedoraproject.org/fedora/44"
   },
   {
@@ -469,11 +487,11 @@
   },
   {
     "name": "AlpineLinux",
-    "iso_url": "https://alpinelinux.mirror.garr.it/v3.24/releases/x86_64/alpine-standard-3.24.3-x86_64.iso",
+    "iso_url": "https://alpinelinux.mirror.garr.it/v3.24/releases/x86_64/alpine-standard-3.24.4-x86_64.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "alpine",
-    "os_version": "3.24.3",
+    "os_version": "3.24.4",
     "libosinfo_id": "http://alpinelinux.org/alpinelinux/3.24"
   }
 ]
