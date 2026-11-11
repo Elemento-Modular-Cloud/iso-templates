@@ -235,7 +235,7 @@
   },
   {
     "name": "Pop!_OS",
-    "iso_url": "https://iso.pop-os.org/26.04/amd64/nvidia/1/pop-os_26.04_amd64_nvidia_1.iso",
+    "iso_url": "https://iso.pop-os.org/26.04/amd64/nvidia/2/pop-os_26.04_amd64_nvidia_2.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "pop",
