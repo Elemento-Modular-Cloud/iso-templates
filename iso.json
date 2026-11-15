@@ -226,7 +226,7 @@
   },
   {
     "name": "Pop!_OS",
-    "iso_url": "https://iso.pop-os.org/24.04/amd64/nvidia/28/pop-os_24.04_amd64_nvidia_28.iso",
+    "iso_url": "https://iso.pop-os.org/24.04/amd64/nvidia/29/pop-os_24.04_amd64_nvidia_29.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "pop",
