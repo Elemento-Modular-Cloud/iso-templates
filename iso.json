@@ -190,7 +190,7 @@
   },
   {
     "name": "Gentoo",
-    "iso_url": "https://gentoo.mirror.garr.it/releases/amd64/autobuilds/current-install-amd64-minimal/install-amd64-minimal-20261108T170107Z.iso",
+    "iso_url": "https://gentoo.mirror.garr.it/releases/amd64/autobuilds/current-install-amd64-minimal/install-amd64-minimal-20261115T170104Z.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "gentoo",
@@ -280,38 +280,38 @@
   },
   {
     "name": "AlmaLinux",
-    "iso_url": "https://almalinux.mirror.garr.it/9/isos/x86_64/AlmaLinux-9.8-x86_64-boot.iso",
+    "iso_url": "https://almalinux.mirror.garr.it/9/isos/x86_64/AlmaLinux-9.9-x86_64-boot.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "almalinux",
-    "os_version": "9.8.latest-boot-x86_64",
+    "os_version": "9.9.latest-boot-x86_64",
     "libosinfo_id": "http://almalinux.org/almalinux/9"
   },
   {
     "name": "AlmaLinux",
-    "iso_url": "https://almalinux.mirror.garr.it/9/isos/x86_64/AlmaLinux-9.8-x86_64-minimal.iso",
+    "iso_url": "https://almalinux.mirror.garr.it/9/isos/x86_64/AlmaLinux-9.9-x86_64-minimal.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "almalinux",
-    "os_version": "9.8.latest-minimal-x86_64",
+    "os_version": "9.9.latest-minimal-x86_64",
     "libosinfo_id": "http://almalinux.org/almalinux/9"
   },
   {
     "name": "AlmaLinux",
-    "iso_url": "https://almalinux.mirror.garr.it/10/isos/x86_64/AlmaLinux-10.2-x86_64-boot.iso",
+    "iso_url": "https://almalinux.mirror.garr.it/10/isos/x86_64/AlmaLinux-10.3-x86_64-boot.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "almalinux",
-    "os_version": "10.2.latest-boot-x86_64",
+    "os_version": "10.3.latest-boot-x86_64",
     "libosinfo_id": "http://almalinux.org/almalinux/10"
   },
   {
     "name": "AlmaLinux",
-    "iso_url": "https://almalinux.mirror.garr.it/10/isos/x86_64/AlmaLinux-10.2-x86_64-minimal.iso",
+    "iso_url": "https://almalinux.mirror.garr.it/10/isos/x86_64/AlmaLinux-10.3-x86_64-minimal.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "almalinux",
-    "os_version": "10.2.latest-minimal-x86_64",
+    "os_version": "10.3.latest-minimal-x86_64",
     "libosinfo_id": "http://almalinux.org/almalinux/10"
   },
   {
@@ -370,38 +370,38 @@
   },
   {
     "name": "Rocky Linux",
-    "iso_url": "https://rockylinux.mirror.garr.it/9/isos/x86_64/Rocky-9.8-x86_64-boot.iso",
+    "iso_url": "https://rockylinux.mirror.garr.it/9/isos/x86_64/Rocky-9.9-x86_64-boot.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "rocky",
-    "os_version": "9.8.latest-boot",
+    "os_version": "9.9.latest-boot",
     "libosinfo_id": "http://rockylinux.org/rocky/9"
   },
   {
     "name": "Rocky Linux",
-    "iso_url": "https://rockylinux.mirror.garr.it/9/isos/x86_64/Rocky-9.8-x86_64-minimal.iso",
+    "iso_url": "https://rockylinux.mirror.garr.it/9/isos/x86_64/Rocky-9.9-x86_64-minimal.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "rocky",
-    "os_version": "9.8.latest-minimal",
+    "os_version": "9.9.latest-minimal",
     "libosinfo_id": "http://rockylinux.org/rocky/9"
   },
   {
     "name": "Rocky Linux",
-    "iso_url": "https://rockylinux.mirror.garr.it/10/isos/x86_64/Rocky-10.2-x86_64-boot.iso",
+    "iso_url": "https://rockylinux.mirror.garr.it/10/isos/x86_64/Rocky-10.3-x86_64-boot.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "rocky",
-    "os_version": "10.2.latest-boot",
+    "os_version": "10.3.latest-boot",
     "libosinfo_id": "http://rockylinux.org/rocky/10"
   },
   {
     "name": "Rocky Linux",
-    "iso_url": "https://rockylinux.mirror.garr.it/10/isos/x86_64/Rocky-10.2-x86_64-minimal.iso",
+    "iso_url": "https://rockylinux.mirror.garr.it/10/isos/x86_64/Rocky-10.3-x86_64-minimal.iso",
     "help": "",
     "os_family": "linux",
     "os_flavour": "rocky",
-    "os_version": "10.2.latest-minimal",
+    "os_version": "10.3.latest-minimal",
     "libosinfo_id": "http://rockylinux.org/rocky/10"
   },
   {

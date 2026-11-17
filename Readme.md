@@ -40,20 +40,20 @@ Repository with *.iso* images list for AtomOS
 | Mint | 22.3-cinnamon | ✅ |
 | Mint | 22.3-mate | ✅ |
 | Mint | 22.3-xfce | ✅ |
-| AlmaLinux | 9.8.latest-boot-x86_64 | ✅ |
-| AlmaLinux | 9.8.latest-minimal-x86_64 | ✅ |
-| AlmaLinux | 10.2.latest-boot-x86_64 | ✅ |
-| AlmaLinux | 10.2.latest-minimal-x86_64 | ✅ |
+| AlmaLinux | 9.9.latest-boot-x86_64 | ✅ |
+| AlmaLinux | 9.9.latest-minimal-x86_64 | ✅ |
+| AlmaLinux | 10.3.latest-boot-x86_64 | ✅ |
+| AlmaLinux | 10.3.latest-minimal-x86_64 | ✅ |
 | ArchLinux | latest | ✅ |
 | TempleOS | N/A | ✅ |
 | Debian | 13.7.0 | ✅ |
 | Fedora Workstation | 43-workstation | ✅ |
 | Fedora Silverblue | 43-silverblue | ✅ |
 | Fedora Server | 43-server | ✅ |
-| Rocky Linux | 9.8.latest-boot | ✅ |
-| Rocky Linux | 9.8.latest-minimal | ✅ |
-| Rocky Linux | 10.2.latest-boot | ✅ |
-| Rocky Linux | 10.2.latest-minimal | ✅ |
+| Rocky Linux | 9.9.latest-boot | ✅ |
+| Rocky Linux | 9.9.latest-minimal | ✅ |
+| Rocky Linux | 10.3.latest-boot | ✅ |
+| Rocky Linux | 10.3.latest-minimal | ✅ |
 | OpenBSD | 7.8 | ✅ |
 | AlpineLinux | 3.23.8 | ✅ |
 | Fedora Workstation | 44-workstation | ✅ |
