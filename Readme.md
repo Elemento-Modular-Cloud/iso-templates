@@ -46,7 +46,7 @@ Repository with *.iso* images list for AtomOS
 | AlmaLinux | 10.3.latest-minimal-x86_64 | ✅ |
 | ArchLinux | latest | ✅ |
 | TempleOS | N/A | ✅ |
-| Debian | 13.7.0 | ✅ |
+| Debian | 13.8.0 | ✅ |
 | Fedora Workstation | 43-workstation | ✅ |
 | Fedora Silverblue | 43-silverblue | ✅ |
 | Fedora Server | 43-server | ✅ |
